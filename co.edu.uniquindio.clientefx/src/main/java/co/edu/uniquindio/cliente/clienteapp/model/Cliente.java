@@ -8,7 +8,7 @@ public class Cliente {
     private int edad;
     private String direccion;
     private String celular;
-
+    private Categoria categoria;
 
     public Cliente() {
     }
@@ -18,7 +18,8 @@ public class Cliente {
                    String cedula,
                    int edad,
                    String direccion,
-                   String celular
+                   String celular,
+                   Categoria categoria
                    ) {
 
         this.nombre = nombre;
@@ -27,7 +28,7 @@ public class Cliente {
         this.edad = edad;
         this.direccion = direccion;
         this.celular = celular;
-
+        this.categoria = categoria;
     }
 
 
@@ -84,6 +85,14 @@ public class Cliente {
         this.celular = celular;
     }
 
+    public Categoria getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(Categoria categoria) {
+        this.categoria = categoria;
+    }
+
     @Override
     public String toString() {
         return "Cliente{" +
@@ -93,6 +102,7 @@ public class Cliente {
                 ", edad=" + edad +
                 ", direccion='" + direccion + '\'' +
                 ", celular='" + celular + '\'' +
+                ", categoria='" + categoria + '\'' +
                 '}';
     }
 }

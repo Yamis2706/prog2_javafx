@@ -1,8 +1,11 @@
 package co.edu.uniquindio.cliente.clienteapp.controller;
 
 import java.net.URL;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.model.Cliente;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -52,6 +55,8 @@ public class ClienteController {
     @FXML
     private TextArea txtResultado;
 
+    private List<Cliente> clientes;
+
     @FXML
     void onAgregarCliente(ActionEvent event) {
         agregarCliente();
@@ -59,6 +64,7 @@ public class ClienteController {
 
     @FXML
     void initialize() {
+        clientes = new ArrayList<>();
     }
 
 
@@ -66,15 +72,41 @@ public class ClienteController {
 
         Cliente cliente = new Cliente();
 
+        Categoria categoria = null;
+        boolean clienteBasico = rbtnClienteBasico.isSelected();
+        boolean clientePremium = rbtnClientePremium.isSelected();
+        boolean clienteVIP = rbtnClienteVIP.isSelected();
+
+        if(clienteBasico == true){
+            categoria = Categoria.BASICO;
+        }else if(clientePremium == true){
+            categoria = Categoria.PREMIUM;
+        } else if (clienteVIP == true) {
+            categoria = Categoria.VIP;
+        }
+
         cliente.setNombre(txtNombre.getText());
         cliente.setApellido(txtApellido.getText());
         cliente.setCedula(txtCedula.getText());
         cliente.setEdad(Integer.parseInt(txtEdad.getText()));
         cliente.setDireccion(txtDireccion.getText());
         cliente.setCelular(txtCelular.getText());
-        txtResultado.setText(cliente.toString());
+        cliente.setCategoria( categoria );
 
+        clientes.add(cliente);
 
+        txtResultado.setText(imprimirLista());
+
+    }
+
+    public String imprimirLista(){
+
+        String texto = "";
+
+        for(Cliente cliente : clientes){
+            texto += cliente.toString() +"\n";
+        }
+        return texto;
     }
 
 }
