@@ -6,7 +6,7 @@ public record ClienteDto(
         String nombre,
         String apellido,
         String cedula,
-        int edad,
+        String edad,
         String direccion,
         String celular,
         Categoria categoria

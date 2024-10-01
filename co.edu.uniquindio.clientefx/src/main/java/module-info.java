@@ -10,5 +10,5 @@ module co.edu.uniquindio.cliente.clienteapp {
     opens co.edu.uniquindio.cliente.clienteapp.viewcontroller;
     exports co.edu.uniquindio.cliente.clienteapp.viewcontroller;
     //opens co.edu.uniquindio.cliente.clienteapp.model;
-    
+
 }

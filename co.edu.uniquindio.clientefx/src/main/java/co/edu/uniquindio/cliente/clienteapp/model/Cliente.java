@@ -1,5 +1,8 @@
 package co.edu.uniquindio.cliente.clienteapp.model;
 
+import co.edu.uniquindio.cliente.clienteapp.model.builder.ClienteBuilder;
+
+
 public class Cliente {
 
     private String nombre;
@@ -29,6 +32,10 @@ public class Cliente {
         this.direccion = direccion;
         this.celular = celular;
         this.categoria = categoria;
+    }
+
+    public static ClienteBuilder builder(){
+        return new ClienteBuilder();
     }
 
     public String getNombre() {
