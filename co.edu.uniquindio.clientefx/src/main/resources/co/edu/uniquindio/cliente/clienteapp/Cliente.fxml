@@ -10,7 +10,10 @@
 <?import javafx.scene.layout.AnchorPane?>
 
 
-<AnchorPane prefHeight="462.0" prefWidth="664.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="co.edu.uniquindio.cliente.clienteapp.controller.ClienteController">
+<AnchorPane prefHeight="462.0" prefWidth="664.0"
+            xmlns="http://javafx.com/javafx/21"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="co.edu.uniquindio.cliente.clienteapp.controller.ClienteController">
    <children>
       <SplitPane dividerPositions="0.7804347826086957" orientation="VERTICAL" prefHeight="462.0" prefWidth="664.0">
         <items>

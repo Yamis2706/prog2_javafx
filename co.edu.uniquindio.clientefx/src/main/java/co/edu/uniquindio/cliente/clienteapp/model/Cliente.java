@@ -5,7 +5,7 @@ public class Cliente {
     private String nombre;
     private String apellido;
     private String cedula;
-    private int edad;
+    private String edad;
     private String direccion;
     private String celular;
     private Categoria categoria;
@@ -16,7 +16,7 @@ public class Cliente {
     public Cliente(String nombre,
                    String apellido,
                    String cedula,
-                   int edad,
+                   String edad,
                    String direccion,
                    String celular,
                    Categoria categoria
@@ -25,17 +25,11 @@ public class Cliente {
         this.nombre = nombre;
         this.apellido = apellido;
         this.cedula = cedula;
-        this.edad = edad;
+        this.edad = (edad);
         this.direccion = direccion;
         this.celular = celular;
         this.categoria = categoria;
     }
-
-
-    //public static ClienteBuilder builder(){
-      //  return new ClienteBuilder();
-    //}
-
 
     public String getNombre() {
         return nombre;
@@ -49,7 +43,7 @@ public class Cliente {
         return cedula;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
@@ -73,7 +67,7 @@ public class Cliente {
         this.cedula = cedula;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
@@ -106,3 +100,9 @@ public class Cliente {
                 '}';
     }
 }
+
+
+
+//public static ClienteBuilder builder(){
+//  return new ClienteBuilder();
+//}

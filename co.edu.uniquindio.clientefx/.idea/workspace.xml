@@ -5,30 +5,25 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="78a3551f-b85d-4e7b-b627-7fbcd33cacf1" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/Categoria.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.idea/easycode.ignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.idea/encodings.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.idea/misc.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.idea/vcs.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.mvn/wrapper/maven-wrapper.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/.mvn/wrapper/maven-wrapper.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/src/main/java/co/edu/uniquindio/cliente_fx/cliente_fx/ClienteApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/src/main/java/co/edu/uniquindio/cliente_fx/cliente_fx/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/src/main/java/co/edu/uniquindio/cliente_fx/cliente_fx/controller/ClienteController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/src/main/java/co/edu/uniquindio/cliente_fx/cliente_fx/model/Cliente.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/src/main/java/module-info.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../co.edu.uniquindio.cliente_fx/src/main/resources/co/edu/uniquindio/cliente_fx/cliente_fx/hello-view.fxml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/factory/ModelFactory.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/mapping/dto/ClienteDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/Empleado.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/Objeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/Persona.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/Venta.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/VentaObjeto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/builder/ClienteBuilder.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/service/VentaMapping.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/service/VentaUQ.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/utils/VentaConstantes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/viewcontroller/ClienteViewController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/viewcontroller/VentaAppController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/cliente/clienteapp/ventaApp.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/controller/ClienteController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/controller/ClienteController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/Cliente.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/co/edu/uniquindio/cliente/clienteapp/model/Cliente.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/cliente/clienteapp/Cliente.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/co/edu/uniquindio/cliente/clienteapp/Cliente.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,6 +34,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="FxmlFile" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -52,35 +49,38 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "customColor": "",
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2mX3hLXDgGIQagEIQfrghsaM5zp" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="autoscrollFromSource" value="true" />
     <option name="autoscrollToSource" value="true" />
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ClienteApplication.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "dev__class",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.0",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ClienteApplication.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;dev__class&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration name="ClienteApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="co.edu.uniquindio.cliente.clienteapp.ClienteApplication" />
@@ -104,8 +104,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-18abd8497189-intellij.indexing.shared.core-IU-241.14494.240" />
-        <option value="bundled-js-predefined-1d06a55b98c1-74d2a5396914-JavaScript-IU-241.14494.240" />
+        <option value="bundled-jdk-9823dce3aa75-28b599e66164-intellij.indexing.shared.core-IU-242.23339.11" />
+        <option value="bundled-js-predefined-d6986cc7102b-5c90d61e3bab-JavaScript-IU-242.23339.11" />
       </set>
     </attachedChunks>
   </component>
@@ -118,6 +118,10 @@
       <option name="presentableId" value="Default" />
       <updated>1727209213308</updated>
       <workItem from="1727209215333" duration="1058000" />
+      <workItem from="1727557078644" duration="293000" />
+      <workItem from="1727557642010" duration="159000" />
+      <workItem from="1727557873287" duration="109000" />
+      <workItem from="1727754804306" duration="4995000" />
     </task>
     <servers />
   </component>

@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
 
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.ClienteDto;
 import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.model.Cliente;
 import javafx.event.ActionEvent;
@@ -109,4 +110,6 @@ public class ClienteController {
         return texto;
     }
 
+    public ClienteDto obtenerClientes() {
+    }
 }
