@@ -62,6 +62,10 @@ public class Cliente {
         return celular;
     }
 
+    public Categoria categoria (){
+        return categoria;
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }

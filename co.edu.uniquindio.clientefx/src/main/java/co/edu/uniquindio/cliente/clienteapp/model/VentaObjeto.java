@@ -5,6 +5,13 @@ import java.util.List;
 
 public class VentaObjeto {
 
+    List<Cliente> listaClientes = new ArrayList<>();
+    List<Empleado> listaEmpleados = new ArrayList<>();
+    List<Objeto> listaObjetos = new ArrayList<>();
+    List<Venta> listaVentas = new ArrayList<>();
+
+    private String nombre;
+
     private List<Cliente> clientes;
 
     public VentaObjeto(){
@@ -44,7 +51,35 @@ public class VentaObjeto {
         return cliente;
     }
 
+
+    private Cliente getBuildCliente(String nombre, String apellido,
+                                    String cedula, String edad,
+                                    String direccion, String celular,
+                                    Categoria categoria) {
+        return Cliente.builder()
+                .nombre(nombre)
+                .apellido(apellido)
+                .cedula(cedula)
+                .edad(edad)
+                .direccion(direccion)
+                .celular(celular)
+                .categoria(categoria)
+                .build();
+    }
+
     public List<Cliente> listarClientes() {
         return clientes;
     }
+
+   /* public String obtenerClientesPorCiudad(String ciudad) {
+        String resultado = "";
+
+        for (Cliente cliente: getListaClientes()) {
+            if(cliente.getDireccion().equalsIgnoreCase(ciudad)){
+                resultado = resultado + cliente.toString()+ "\n";
+            }
+        }
+
+        return resultado;
+    }*/
 }

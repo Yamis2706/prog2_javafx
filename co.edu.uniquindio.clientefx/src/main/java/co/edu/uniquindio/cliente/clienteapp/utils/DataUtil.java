@@ -14,7 +14,7 @@ public class DataUtil {
                 "33", "Calle 123", "121212121", Categoria.BASICO) );
 
         ventaObjeto.crearCliente( new Cliente("Cliente 2", "Apellido", "23232",
-                "33", "Calle 323", "4343434", Categoria.BASICO) );
+                "33", "Calle 323", "4343434", Categoria.PREMIUM) );
 
         return ventaObjeto;
 

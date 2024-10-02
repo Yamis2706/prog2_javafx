@@ -22,4 +22,6 @@ public interface IModelFactoryService {
 
     void crearVinculo(Vendedor v1, Vendedor v2);
 
+   //void obtenerClientesPorCiudad(String ciudad);
+
 }
