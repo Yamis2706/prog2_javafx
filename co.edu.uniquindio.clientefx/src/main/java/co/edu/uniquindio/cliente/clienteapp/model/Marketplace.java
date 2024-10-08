@@ -5,17 +5,17 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public class Venta {
+public class Marketplace {
     private String numeroVenta;
     private Date fechaVenta;
     private Date fechaEntregaObjeto;
     private String descripcion;
     private Empleado empleadoAsociado;
-    private Cliente clienteAsociado;
+    private Vendedor clienteAsociado;
     List<Objeto> listaObjetosAsociados = new ArrayList<>();
 
 
-    public Venta() {
+    public Marketplace() {
     }
 
     public String getNumeroVenta() {
@@ -58,11 +58,11 @@ public class Venta {
         this.empleadoAsociado = empleadoAsociado;
     }
 
-    public Cliente getClienteAsociado() {
+    public Vendedor getClienteAsociado() {
         return clienteAsociado;
     }
 
-    public void setClienteAsociado(Cliente clienteAsociado) {
+    public void setClienteAsociado(Vendedor clienteAsociado) {
         this.clienteAsociado = clienteAsociado;
     }
 

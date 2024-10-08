@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class VentaAppController {
+public class MarketplaceAppController {
     @FXML
     private ResourceBundle resources;
 

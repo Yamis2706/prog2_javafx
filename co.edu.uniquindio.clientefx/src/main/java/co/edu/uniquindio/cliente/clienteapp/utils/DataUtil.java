@@ -1,19 +1,20 @@
 package co.edu.uniquindio.cliente.clienteapp.utils;
 
 import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
-import co.edu.uniquindio.cliente.clienteapp.model.Cliente;
-import co.edu.uniquindio.cliente.clienteapp.model.VentaObjeto;
+import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
+import co.edu.uniquindio.cliente.clienteapp.model.MarketplaceObjeto;
 
 public class DataUtil {
 
-    public static VentaObjeto inicializarDatos(){
+    public static MarketplaceObjeto inicializarDatos(){
 
-        VentaObjeto ventaObjeto = new VentaObjeto();
+        MarketplaceObjeto ventaObjeto = new MarketplaceObjeto();
 
-        ventaObjeto.crearCliente( new Cliente("Cliente 1", "Apellido", "12123",
+        ventaObjeto.crearVendedor( new Vendedor("Vendedor 1", "Apellido",
+                "12123",
                 "33", "Calle 123", "121212121", Categoria.BASICO) );
 
-        ventaObjeto.crearCliente( new Cliente("Cliente 2", "Apellido", "23232",
+        ventaObjeto.crearVendedor( new Vendedor("Vendedor 2", "Apellido", "23232",
                 "33", "Calle 323", "4343434", Categoria.PREMIUM) );
 
         return ventaObjeto;

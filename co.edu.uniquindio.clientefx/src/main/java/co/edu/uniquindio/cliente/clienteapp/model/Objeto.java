@@ -3,7 +3,7 @@ package co.edu.uniquindio.cliente.clienteapp.model;
 public class Objeto {
     private String nombre;
     private String idObjeto;
-    VentaObjeto ownedByVentaUQ;
+    MarketplaceObjeto ownedByVentaUQ;
 
     public Objeto() {
     }
@@ -33,11 +33,11 @@ public class Objeto {
         this.idObjeto = idObjeto;
     }
 
-    public VentaObjeto getOwnedByVentaUQ() {
+    public MarketplaceObjeto getOwnedByVentaUQ() {
         return ownedByVentaUQ;
     }
 
-    public void setownedByVentaUQ(VentaObjeto ownedByVentaUQ) {
+    public void setownedByVentaUQ(MarketplaceObjeto ownedByVentaUQ) {
         this.ownedByVentaUQ = ownedByVentaUQ;
     }
 

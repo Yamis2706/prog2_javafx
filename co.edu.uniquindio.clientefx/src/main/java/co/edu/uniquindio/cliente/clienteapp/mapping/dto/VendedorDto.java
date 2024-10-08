@@ -2,7 +2,7 @@ package co.edu.uniquindio.cliente.clienteapp.mapping.dto;
 
 import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
 
-public record ClienteDto(
+public record VendedorDto(
         String nombre,
         String apellido,
         String cedula,
