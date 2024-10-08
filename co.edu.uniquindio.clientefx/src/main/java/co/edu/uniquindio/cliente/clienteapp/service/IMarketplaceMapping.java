@@ -6,9 +6,10 @@ import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 import java.util.List;
 
 public interface IMarketplaceMapping {
-    List<VendedorDto> getClientesDto(List<Vendedor> listaClientes);
 
-    VendedorDto clienteToClienteDto(Vendedor cliente);
+    List<VendedorDto> getVendedoresDto(List<Vendedor> listavendedores);
 
-    Vendedor clienteDtoToCliente(VendedorDto clienteDto);
+    VendedorDto vendedorToVendedorDto(Vendedor vendedor);
+
+    Vendedor vendedorDtoToVendedor(VendedorDto vendedorDto);
 }

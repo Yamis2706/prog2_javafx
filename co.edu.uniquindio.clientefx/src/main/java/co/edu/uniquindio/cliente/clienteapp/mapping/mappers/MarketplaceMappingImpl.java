@@ -12,40 +12,40 @@ public class MarketplaceMappingImpl implements IMarketplaceMapping {
 
 
     @Override
-    public List<VendedorDto> getClientesDto(List<Vendedor> listaClientes) {
-        if(listaClientes == null){
+    public List<VendedorDto> getVendedoresDto(List<Vendedor> listavendedores) {
+        if(listavendedores == null){
             return null;
         }
-        List<VendedorDto> listaClientesDto = new ArrayList<VendedorDto>(listaClientes.size());
-        for (Vendedor cliente : listaClientes) {
-            listaClientesDto.add(clienteToClienteDto(cliente));
+        List<VendedorDto> listaClientesDto = new ArrayList<VendedorDto>(listavendedores.size());
+        for (Vendedor cliente : listavendedores) {
+            listaClientesDto.add(vendedorToVendedorDto(cliente));
         }
 
         return listaClientesDto;
     }
 
     @Override
-    public VendedorDto clienteToClienteDto(Vendedor cliente) {
+    public VendedorDto vendedorToVendedorDto(Vendedor vendedor) {
         return new VendedorDto(
-                cliente.getNombre(),
-                cliente.getApellido(),
-                cliente.getCedula(),
-                cliente.getEdad(),
-                cliente.getDireccion(),
-                cliente.getCelular(),
-                cliente.getCategoria());
+                vendedor.getNombre(),
+                vendedor.getApellido(),
+                vendedor.getCedula(),
+                vendedor.getEdad(),
+                vendedor.getDireccion(),
+                vendedor.getCelular(),
+                vendedor.getCategoria());
     }
 
     @Override
-    public Vendedor clienteDtoToCliente(VendedorDto clienteDto) {
+    public Vendedor vendedorDtoToVendedor(VendedorDto vendedorDto) {
         return Vendedor.builder()
-                .nombre(clienteDto.nombre())
-                .apellido(clienteDto.apellido())
-                .cedula(clienteDto.cedula())
-                .edad(clienteDto.edad())
-                .direccion(clienteDto.direccion())
-                .celular(clienteDto.celular())
-                .categoria(clienteDto.categoria())
+                .nombre(vendedorDto.nombre())
+                .apellido(vendedorDto.apellido())
+                .cedula(vendedorDto.cedula())
+                .edad(vendedorDto.edad())
+                .direccion(vendedorDto.direccion())
+                .celular(vendedorDto.celular())
+                .categoria(vendedorDto.categoria())
                 .build();
     }
 }

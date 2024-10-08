@@ -28,7 +28,7 @@ public class ModelFactory implements IModelFactoryService {
     }
 
     private void inicializarDatos(){
-        Vendedor cliente1 = Vendedor.builder()
+        Vendedor vendedor1 = Vendedor.builder()
                 .nombre("Sara")
                 .apellido("López")
                 .cedula("1091")
@@ -38,7 +38,7 @@ public class ModelFactory implements IModelFactoryService {
                 .categoria(Categoria.VIP)
                 .build();
 
-        Vendedor cliente2 = Vendedor.builder()
+        Vendedor vendedor2 = Vendedor.builder()
                 .nombre("Emily")
                 .apellido("Quintero")
                 .cedula("1090")
@@ -46,6 +46,16 @@ public class ModelFactory implements IModelFactoryService {
                 .direccion("Armenia")
                 .celular("302284")
                 .categoria(Categoria.PREMIUM)
+                .build();
+
+        Vendedor vendedor3 = Vendedor.builder()
+                .nombre("Daniel")
+                .apellido("Quintero")
+                .cedula("1061")
+                .edad("17")
+                .direccion("Circasia")
+                .celular("322546")
+                .categoria(Categoria.VIP)
                 .build();
     }
 
@@ -60,21 +70,6 @@ public class ModelFactory implements IModelFactoryService {
     }
 
     @Override
-    public void crearCliente(Vendedor cliente) {
-
-    }
-
-    @Override
-    public void editarCliente(Vendedor cliente) {
-
-    }
-
-    @Override
-    public void eliminarCliente(String cedula) {
-
-    }
-
-    @Override
     public void editarVendedor(Vendedor vendedor) {
         ventaObjeto.editarVendedor(vendedor);
     }
@@ -82,11 +77,6 @@ public class ModelFactory implements IModelFactoryService {
     @Override
     public void eliminarVendedor(String cedula) {
         ventaObjeto.eliminarVendedor(cedula);
-    }
-
-    @Override
-    public List<Vendedor> listarClientes() {
-        return List.of();
     }
 
     @Override

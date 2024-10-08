@@ -9,17 +9,9 @@ import java.util.List;
  */
 public interface IModelFactoryService {
 
-    void crearCliente(Vendedor cliente);
-
-    void editarCliente(Vendedor cliente);
-
-    void eliminarCliente(String cedula);
-
     void editarVendedor(Vendedor vendedor);
 
     void eliminarVendedor(String cedula);
-
-    List<Vendedor> listarClientes();
 
     void crearVendedor(Vendedor vendedor);
 

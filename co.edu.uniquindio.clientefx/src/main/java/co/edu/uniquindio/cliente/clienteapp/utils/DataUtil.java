@@ -8,16 +8,20 @@ public class DataUtil {
 
     public static MarketplaceObjeto inicializarDatos(){
 
-        MarketplaceObjeto ventaObjeto = new MarketplaceObjeto();
+        MarketplaceObjeto marketplaceObjeto = new MarketplaceObjeto();
 
-        ventaObjeto.crearVendedor( new Vendedor("Vendedor 1", "Apellido",
+        marketplaceObjeto.crearVendedor( new Vendedor("Vendedor 1", "Apellido",
                 "12123",
                 "33", "Calle 123", "121212121", Categoria.BASICO) );
 
-        ventaObjeto.crearVendedor( new Vendedor("Vendedor 2", "Apellido", "23232",
+        marketplaceObjeto.crearVendedor( new Vendedor("Vendedor 2", "Apellido", "23232",
                 "33", "Calle 323", "4343434", Categoria.PREMIUM) );
 
-        return ventaObjeto;
+        return new MarketplaceObjeto();
 
     }
+
+
+
+
 }

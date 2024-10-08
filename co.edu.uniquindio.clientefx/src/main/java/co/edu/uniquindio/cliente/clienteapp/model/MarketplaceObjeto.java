@@ -18,8 +18,8 @@ public class MarketplaceObjeto {
         this.vendedores = new ArrayList<>();
     }
 
-    public void crearVendedor(Vendedor cliente){
-        vendedores.add(cliente);
+    public void crearVendedor(Vendedor vendedor){
+        vendedores.add(vendedor);
     }
 
     public void editarVendedor(Vendedor vendedorEditado){
