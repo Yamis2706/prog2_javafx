@@ -11,7 +11,7 @@ public class Marketplace {
     private Date fechaEntregaObjeto;
     private String descripcion;
     private Empleado empleadoAsociado;
-    private Vendedor clienteAsociado;
+    private Vendedor vendedorAsociado;
     List<Objeto> listaObjetosAsociados = new ArrayList<>();
 
 
@@ -58,12 +58,12 @@ public class Marketplace {
         this.empleadoAsociado = empleadoAsociado;
     }
 
-    public Vendedor getClienteAsociado() {
-        return clienteAsociado;
+    public Vendedor getVendedorAsociado() {
+        return vendedorAsociado;
     }
 
-    public void setClienteAsociado(Vendedor clienteAsociado) {
-        this.clienteAsociado = clienteAsociado;
+    public void setVendedorAsociado(Vendedor vendedorAsociado) {
+        this.vendedorAsociado = vendedorAsociado;
     }
 
     public List<Objeto> getListaObjetosAsociados() {

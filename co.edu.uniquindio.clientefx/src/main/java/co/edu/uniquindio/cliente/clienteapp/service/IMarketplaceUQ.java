@@ -16,7 +16,7 @@ public interface IMarketplaceUQ {
                           Categoria categoria);
     
     void eliminarVendedor(String cedula);
-    List<Vendedor> obtenervendedores();
+    List<Vendedor> obtenerVendedores();
     Vendedor obtenerVendedor(String cedula);
     void mostrarInformacionVendedores();
     void buscarVendedor(String cedula);

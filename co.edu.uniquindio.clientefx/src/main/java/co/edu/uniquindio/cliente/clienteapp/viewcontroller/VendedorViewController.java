@@ -5,8 +5,9 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 import co.edu.uniquindio.cliente.clienteapp.controller.VendedorController;
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
-import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
+import co.edu.uniquindio.cliente.clienteapp.utils.Constantes;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -18,9 +19,8 @@ import javafx.scene.control.*;
 public class VendedorViewController implements Initializable {
 
     private VendedorController vendedorController;
-    private ObservableList<Vendedor> listaVendedores =
-            FXCollections.observableArrayList();
-    private Vendedor vendedorSeleccionado;
+    private ObservableList<VendedorDto> listaVendedores = FXCollections.observableArrayList();
+    private VendedorDto vendedorSeleccionado;
 
     @FXML
     private Button btnActualizarVendedor;
@@ -44,28 +44,28 @@ public class VendedorViewController implements Initializable {
     private RadioButton rbtnVendedorVIP;
 
     @FXML
-    private TableView<Vendedor> tvVendedor;
+    private TableView<VendedorDto> tvVendedor;
 
     @FXML
-    private TableColumn<Vendedor, String> tcNombre;
+    private TableColumn<VendedorDto, String> tcNombre;
 
     @FXML
-    private TableColumn<Vendedor, String> tcApellido;
+    private TableColumn<VendedorDto, String> tcApellido;
 
     @FXML
-    private TableColumn<Vendedor, String> tcCedula;
+    private TableColumn<VendedorDto, String> tcCedula;
 
     @FXML
-    private TableColumn<Vendedor, String> tcCategoria;
+    private TableColumn<VendedorDto, String> tcCategoria;
 
     @FXML
-    private TableColumn<Vendedor, String> tcCelular;
+    private TableColumn<VendedorDto, String> tcCelular;
 
     @FXML
-    private TableColumn<Vendedor, String> tcDireccion;
+    private TableColumn<VendedorDto, String> tcDireccion;
 
     @FXML
-    private TableColumn<Vendedor, String> tcEdad;
+    private TableColumn<VendedorDto, String> tcEdad;
 
     @FXML
     private TextField txtApellido;
@@ -94,24 +94,24 @@ public class VendedorViewController implements Initializable {
 
     private void initView() {
         initDataBinding();
-        obtenerVendedores();
+        listarVendedores();
         tvVendedor.getItems().clear();
         tvVendedor.setItems(listaVendedores);
         listenerSelection();
     }
 
-    private void obtenerVendedores() {
-        listaVendedores.addAll(vendedorController.listarvendedores());
+    private void listarVendedores() {
+        listaVendedores.addAll(vendedorController.listarVendedores());
     }
 
     private void initDataBinding() {
-        tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getNombre()));
-        tcApellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getApellido()));
-        tcCedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCedula()));
-        tcEdad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getEdad()));
-        tcDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getDireccion()));
-        tcCelular.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCelular()));
-        tcCategoria.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().getCategoria().toString()));
+        tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
+        tcApellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
+        tcCedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().cedula()));
+        tcEdad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().edad()));
+        tcDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
+        tcCelular.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().celular()));
+        tcCategoria.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().categoria().toString()));
     }
 
     private void listenerSelection() {
@@ -122,29 +122,29 @@ public class VendedorViewController implements Initializable {
         });
     }
 
-    private void mostrarInformacionVendedor(Vendedor vendedorSeleccionado) {
+    private void mostrarInformacionVendedor(VendedorDto vendedorSeleccionado) {
         if(vendedorSeleccionado != null){
 
-            if(vendedorSeleccionado.getCategoria() == Categoria.BASICO){
+            if(vendedorSeleccionado.categoria() == Categoria.BASICO){
                 rbtnVendedorBasico.setSelected(true);
                 rbtnVendedorPremium.setSelected(false);
                 rbtnVendedorVIP.setSelected(false);
-            }else if(vendedorSeleccionado.getCategoria() == Categoria.PREMIUM){
+            }else if(vendedorSeleccionado.categoria() == Categoria.PREMIUM){
                 rbtnVendedorPremium.setSelected(true);
                 rbtnVendedorBasico.setSelected(false);
                 rbtnVendedorVIP.setSelected(false);
-            } else if (vendedorSeleccionado.getCategoria() == Categoria.VIP) {
+            } else if (vendedorSeleccionado.categoria() == Categoria.VIP) {
                 rbtnVendedorVIP.setSelected(true);
                 rbtnVendedorPremium.setSelected(false);
                 rbtnVendedorBasico.setSelected(false);
             }
 
-            txtNombre.setText(vendedorSeleccionado.getNombre());
-            txtApellido.setText(vendedorSeleccionado.getApellido());
-            txtCedula.setText(vendedorSeleccionado.getCedula());
-            txtEdad.setText(String.valueOf(vendedorSeleccionado.getEdad()));
-            txtDireccion.setText(vendedorSeleccionado.getDireccion());
-            txtCelular.setText(vendedorSeleccionado.getCelular());
+            txtNombre.setText(vendedorSeleccionado.nombre());
+            txtApellido.setText(vendedorSeleccionado.apellido());
+            txtCedula.setText(vendedorSeleccionado.cedula());
+            txtEdad.setText(String.valueOf(vendedorSeleccionado.edad()));
+            txtDireccion.setText(vendedorSeleccionado.direccion());
+            txtCelular.setText(vendedorSeleccionado.celular());
 
         }
     }
@@ -153,19 +153,44 @@ public class VendedorViewController implements Initializable {
     void onActualizarVendedor(ActionEvent event) {
         if(vendedorSeleccionado!=null){
 
-            vendedorSeleccionado.setNombre(txtNombre.getText());
-            vendedorSeleccionado.setApellido(txtApellido.getText());
-            vendedorSeleccionado.setCedula(txtCedula.getText());
-            vendedorSeleccionado.setEdad(txtEdad.getText());
-            vendedorSeleccionado.setDireccion(txtDireccion.getText());
-            vendedorSeleccionado.setCelular(txtCelular.getText());
-            vendedorSeleccionado.setCategoria( vendedorSeleccionado.getCategoria() );
+            VendedorDto editado = new VendedorDto(
+                    txtNombre.getText(),
+                    txtApellido.getText(),
+                    txtCedula.getText(),
+                    txtEdad.getText(),
+                    txtDireccion.getText(),
+                    txtCelular.getText(),
+                    vendedorSeleccionado.categoria()
+            );
 
-            vendedorController.editarVendedor(vendedorSeleccionado);
+            try {
+                vendedorController.editarVendedor(editado);
 
-            int indice = listaVendedores.indexOf(vendedorSeleccionado);
-            listaVendedores.set(indice, vendedorSeleccionado);
+                int indice = obtenerItemTabla(editado.cedula());
+                listaVendedores.set(indice, editado);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Mensaje urgente");
+                alert.setContentText(Constantes.VENDEDOR_ACTUALIZADO);
+                alert.show();
+
+            }catch (Exception e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje urgente");
+                alert.setContentText(e.getMessage());
+                alert.show();
+            }
+
         }
+    }
+
+    public int obtenerItemTabla(String cedula){
+        for (int i = 0; i < listaVendedores.size(); i++) {
+            if(listaVendedores.get(i).cedula().equals(cedula)){
+                return i;
+            }
+        }
+        return -1;
     }
 
     @FXML
@@ -177,8 +202,21 @@ public class VendedorViewController implements Initializable {
     void onEliminarVendedor(ActionEvent event) {
 
         if(vendedorSeleccionado != null){
-            vendedorController.eliminarVendedor(vendedorSeleccionado.getCedula());
-            listaVendedores.remove(vendedorSeleccionado);
+            try {
+                vendedorController.eliminarVendedor(vendedorSeleccionado.cedula());
+                listaVendedores.remove(vendedorSeleccionado);
+
+                Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Mensaje urgente");
+                alert.setContentText(Constantes.VENDEDOR_ELIMINADO);
+                alert.show();
+
+            }catch (Exception e){
+                Alert alert = new Alert(Alert.AlertType.ERROR);
+                alert.setTitle("Mensaje urgente");
+                alert.setContentText(e.getMessage());
+                alert.show();
+            }
         }
 
     }
@@ -200,8 +238,6 @@ public class VendedorViewController implements Initializable {
 
     private void agregarVendedor() {
 
-        Vendedor vendedor = new Vendedor();
-
         Categoria categoria = null;
         boolean vendedorBasico = rbtnVendedorBasico.isSelected();
         boolean vendedorPremium = rbtnVendedorPremium.isSelected();
@@ -215,36 +251,32 @@ public class VendedorViewController implements Initializable {
             categoria = Categoria.VIP;
         }
 
-
-       // String nombre = txtNombre.getText() ;
-
-        vendedor.setNombre(txtNombre.getText());
-        vendedor.setApellido(txtApellido.getText());
-        vendedor.setCedula(txtCedula.getText());
-        vendedor.setEdad(txtEdad.getText());
-        vendedor.setDireccion(txtDireccion.getText());
-        vendedor.setCelular(txtCelular.getText());
-        vendedor.setCategoria( categoria );
-
-        listaVendedores.add(vendedor);
-        vendedorController.crearVendedor(vendedor);
-
-    }
-
-
-    /*private VendedorDto crearClienteDto(){
-        return VendedorDto(
+        VendedorDto nuevo = new VendedorDto(
                 txtNombre.getText(),
                 txtApellido.getText(),
                 txtCedula.getText(),
                 txtEdad.getText(),
                 txtDireccion.getText(),
-                txtCelular.getText())
+                txtCelular.getText(),
+                categoria
+        );
+
+        try {
+            vendedorController.crearVendedor(nuevo);
+            listaVendedores.add(nuevo);
+
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Mensaje urgente");
+            alert.setContentText(Constantes.VENDEDOR_AGREGADO);
+            alert.show();
+
+        }catch (Exception e){
+            Alert alert = new Alert(Alert.AlertType.ERROR);
+            alert.setTitle("Mensaje urgente");
+            alert.setContentText(e.getMessage());
+            alert.show();
+        }
     }
-
-     */
-
-
 }
 
 

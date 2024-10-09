@@ -7,7 +7,9 @@ import java.util.List;
 
 public interface IMarketplaceMapping {
 
-    List<VendedorDto> getVendedoresDto(List<Vendedor> listavendedores);
+    List<VendedorDto> getVendedoresDto(List<Vendedor> listaVendedores);
+
+    List<Vendedor> getVendedores(List<VendedorDto> listaVendedoresDto);
 
     VendedorDto vendedorToVendedorDto(Vendedor vendedor);
 

@@ -1,5 +1,6 @@
 package co.edu.uniquindio.cliente.clienteapp.service;
 
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 
 import java.util.List;
@@ -9,13 +10,15 @@ import java.util.List;
  */
 public interface IModelFactoryService {
 
-    void editarVendedor(Vendedor vendedor);
+    void editarVendedor(VendedorDto vendedor) throws Exception;
 
-    void eliminarVendedor(String cedula);
+    void eliminarVendedor(String cedula) throws Exception;
 
-    void crearVendedor(Vendedor vendedor);
+    void crearVendedor(VendedorDto vendedor) throws Exception;
 
-    List<Vendedor> listarVendedores();
+    void obtenerVendedor(String cedula) throws Exception;
+
+    List<VendedorDto> listarVendedores();
 
     void crearVinculo(Vendedor v1, Vendedor v2);
 

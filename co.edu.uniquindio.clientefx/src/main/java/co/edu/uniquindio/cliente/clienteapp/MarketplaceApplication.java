@@ -7,13 +7,13 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class VendedorApplication extends Application {
+public class MarketplaceApplication extends Application {
     @Override
     public void start(Stage stage) throws IOException {
         FXMLLoader fxmlLoader =
-                new FXMLLoader(VendedorApplication.class.getResource("Vendedor.fxml"));
+                new FXMLLoader(MarketplaceApplication.class.getResource("Vendedor.fxml"));
         Scene scene = new Scene(fxmlLoader.load());
-        stage.setTitle("App Vendedor");
+        stage.setTitle("App Marketplace");
         stage.setScene(scene);
         stage.show();
     }

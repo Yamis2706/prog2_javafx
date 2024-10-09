@@ -11,17 +11,33 @@ import java.util.List;
 public class MarketplaceMappingImpl implements IMarketplaceMapping {
 
 
+
     @Override
-    public List<VendedorDto> getVendedoresDto(List<Vendedor> listavendedores) {
-        if(listavendedores == null){
+    public List<VendedorDto> getVendedoresDto(List<Vendedor> listaVendedores) {
+        if(listaVendedores == null){
             return null;
         }
-        List<VendedorDto> listaClientesDto = new ArrayList<VendedorDto>(listavendedores.size());
-        for (Vendedor cliente : listavendedores) {
-            listaClientesDto.add(vendedorToVendedorDto(cliente));
+        List<VendedorDto> listaVendedoresDto =
+                new ArrayList<VendedorDto>(listaVendedores.size());
+        for (Vendedor vendedor : listaVendedores) {
+            listaVendedoresDto.add(vendedorToVendedorDto(vendedor));
         }
 
-        return listaClientesDto;
+        return listaVendedoresDto;
+    }
+
+
+    @Override
+    public List<Vendedor> getVendedores(List<VendedorDto> listaVendedoresDto) {
+        if(listaVendedoresDto == null){
+            return null;
+        }
+        List<Vendedor> listaVendedores = new ArrayList<Vendedor>(listaVendedoresDto.size());
+        for (VendedorDto vendedor : listaVendedoresDto) {
+            listaVendedores.add(vendedorDtoToVendedor(vendedor));
+        }
+
+        return listaVendedores;
     }
 
     @Override

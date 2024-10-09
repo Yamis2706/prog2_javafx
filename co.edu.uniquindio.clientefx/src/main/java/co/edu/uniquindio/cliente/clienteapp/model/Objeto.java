@@ -37,7 +37,7 @@ public class Objeto {
         return ownedByVentaUQ;
     }
 
-    public void setownedByVentaUQ(MarketplaceObjeto ownedByVentaUQ) {
+    public void setOwnedByVentaUQ(MarketplaceObjeto ownedByVentaUQ) {
         this.ownedByVentaUQ = ownedByVentaUQ;
     }
 

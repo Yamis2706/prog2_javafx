@@ -1,5 +1,7 @@
 package co.edu.uniquindio.cliente.clienteapp.model;
 
+import co.edu.uniquindio.cliente.clienteapp.utils.Constantes;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -18,11 +20,44 @@ public class MarketplaceObjeto {
         this.vendedores = new ArrayList<>();
     }
 
-    public void crearVendedor(Vendedor vendedor){
+    public void crearVendedor(Vendedor vendedor) throws Exception{
+
+
+        if(vendedor.getNombre() == null || vendedor.getNombre().isBlank()){
+            throw new Exception(Constantes.INGRESE_NOMBRE);
+        }
+
+        if(vendedor.getApellido() == null || vendedor.getApellido().isBlank()){
+            throw new Exception(Constantes.INGRESE_APELIIDO);
+        }
+
+
+        if(vendedor.getCedula() == null || vendedor.getCedula().isBlank()){
+            throw new Exception(Constantes.INGRESE_CEDULA);
+        }
+
+
+        if(vendedor.getEdad() == null || vendedor.getEdad().isBlank()){
+            throw new Exception(Constantes.INGRESE_EDAD);
+        }
+
+        if(vendedor.getDireccion() == null || vendedor.getDireccion().isBlank()){
+            throw new Exception(Constantes.INGRESE_DIRECCION);
+        }
+
+        if(vendedor.getCelular() == null || vendedor.getCelular().isBlank()){
+            throw new Exception(Constantes.INGRESE_CELULAR);
+        }
+
+
+        if( obtenerVendedor( vendedor.getCedula() ) !=null ){
+            throw new Exception(Constantes.CEDULA_EXISTENTE);
+        }
+
         vendedores.add(vendedor);
     }
 
-    public void editarVendedor(Vendedor vendedorEditado){
+    public void editarVendedor(Vendedor vendedorEditado) throws Exception{
         Vendedor vendedor = obtenerVendedor(vendedorEditado.getCedula());
         vendedor.setNombre(vendedorEditado.getNombre());
         vendedor.setApellido(vendedorEditado.getApellido());
@@ -34,7 +69,7 @@ public class MarketplaceObjeto {
 
     }
 
-    public void eliminarVendedor(String cedula){
+    public void eliminarVendedor(String cedula) throws Exception{
         Vendedor vendedor = obtenerVendedor(cedula);
         vendedores.remove(vendedor);
     }
@@ -52,10 +87,13 @@ public class MarketplaceObjeto {
     }
 
 
-    private Vendedor getBuildVendedor(String nombre, String apellido,
-                                     String cedula, String edad,
-                                     String direccion, String celular,
-                                     Categoria categoria) {
+    private Vendedor getListaVendedores(String nombre,
+                                        String apellido,
+                                        String cedula,
+                                        String edad,
+                                        String direccion,
+                                        String celular,
+                                        Categoria categoria) {
         return Vendedor.builder()
                 .nombre(nombre)
                 .apellido(apellido)
@@ -70,16 +108,4 @@ public class MarketplaceObjeto {
     public List<Vendedor> listarVendedores() {
         return vendedores;
     }
-
-   /* public String obtenerClientesPorCiudad(String ciudad) {
-        String resultado = "";
-
-        for (Vendedor cliente: getListaClientes()) {
-            if(cliente.getDireccion().equalsIgnoreCase(ciudad)){
-                resultado = resultado + cliente.toString()+ "\n";
-            }
-        }
-
-        return resultado;
-    }*/
 }
