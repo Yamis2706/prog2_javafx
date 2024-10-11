@@ -18,37 +18,37 @@ public class VendedorBuilder {
 
     public VendedorBuilder nombre(String nombre) {
         this.nombre = nombre;
-        return this; // Devuelve la instancia actual de VendedorBuilder
+        return this;
     }
 
     public VendedorBuilder apellido(String apellido) {
         this.apellido = apellido;
-        return this; // Devuelve la instancia actual de VendedorBuilder
+        return this;
     }
 
     public VendedorBuilder cedula(String cedula) {
         this.cedula = cedula;
-        return this; // Devuelve la instancia actual de VendedorBuilder
+        return this;
     }
 
     public VendedorBuilder edad(String edad) {
         this.edad = edad;
-        return this; // Devuelve la instancia actual de VendedorBuilder
+        return this;
     }
 
     public VendedorBuilder direccion(String direccion) {
         this.direccion = direccion;
-        return this; // Devuelve la instancia actual de VendedorBuilder
+        return this;
     }
 
     public VendedorBuilder celular(String celular) {
         this.celular = celular;
-        return this; // Devuelve la instancia actual de VendedorBuilder
+        return this;
     }
 
     public VendedorBuilder categoria(Categoria categoria) {
         this.categoria = categoria;
-        return this; // Devuelve la instancia actual de VendedorBuilder
+        return this;
     }
 
     public Vendedor build() {
