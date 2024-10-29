@@ -1,8 +1,14 @@
 package co.edu.uniquindio.cliente.clienteapp.service;
 
 
+import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
+import co.edu.uniquindio.cliente.clienteapp.enums.EstadoProducto;
+import co.edu.uniquindio.cliente.clienteapp.enums.EstadoVenta;
+import co.edu.uniquindio.cliente.clienteapp.enums.TipoVenta;
 import co.edu.uniquindio.cliente.clienteapp.model.*;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -28,10 +34,12 @@ public interface IMarketplaceUQ {
                                String celular,
                                Categoria categoria);
 
-    boolean crearObjeto(String idObjeto, 
-                        String descripcion);
+    boolean crearProducto(String nombre, String imagen,
+                          String categoria, double precio,
+                          EstadoProducto estado, String idProducto,
+                          String descripcion);
     
-    Objeto obtenerObjeto(String idObjeto);
+    Producto obtenerProducto(String idProducto);
     
     Empleado obtenerEmpleado(String cedulaEmpleado);
     
@@ -41,7 +49,7 @@ public interface IMarketplaceUQ {
                        String descripcion,
                        String cedulaVendedor,
                        String cedulaEmpleado,
-                       String idObjeto);
+                       String idProducto);
 
     boolean eliminarVenta(String numeroVenta);
 
@@ -53,4 +61,49 @@ public interface IMarketplaceUQ {
 
     Marketplace obtenerVenta(String numeroVenta);
 
+    Venta crearVenta(Vendedor vendedor1, Vendedor vendedor2,
+                     ArrayList<Producto> productos, TipoVenta tipoVenta,
+                     EstadoVenta estadoVenta) throws Exception;
+
+    Factura obtenerFactura();
+
+    Venta obtenerVenta();
+
+    ArrayList<Venta> listarTodasVentas() throws Exception;
+
+    ArrayList<Venta> listarVentasFecha(LocalDate fecha) throws Exception;
+
+    ArrayList<Venta> listarVentasEstado(EstadoVenta estadoVenta) throws Exception;
+
+    ArrayList<Venta> listarVentasFechaEstado(LocalDate fecha,
+                                             EstadoVenta estadoVenta) throws Exception;
+
+    Vendedor agregarVendedor(String cedula, String nombre,
+                             String direccion,
+                             String ciudad, String numeroContacto, String correoElectronico) throws Exception;
+
+    Vendedor agregarVendedor(String nombre,
+                             String apellido,
+                             String cedula,
+                             String edad,
+                             String direccion,
+                             String celular,
+                             Categoria categoria) throws Exception;
+
+    Empleado validarUsuario(String cedula, String contrasena) throws Exception;
+
+    void agregarEmpleado(String nombre, String apellido, String cedula,
+                         String edad) throws Exception;
+
+    void cambiarEstadoVenta(String codigoVenta, EstadoVenta estadoVenta,
+                            String descripcion) throws Exception;
+
+    ArrayList<Historial> consultarHistorialEstados(String codigoEnvio) throws Exception;
+
+    ArrayList<Venta> listarVentas();
+
+    void editarEmpleado(String nombre, String direccion, String cedula,
+                        String correoElectronico, String contrasena) throws Exception;
+
+    int calcularVentasMes(int mes);
 }

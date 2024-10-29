@@ -5,6 +5,8 @@ public abstract class Persona {
     private String apellido;
     private String cedula;
     private int edad;
+    private String correo;
+    private String contrasena;
 
 
     public Persona() {
@@ -42,6 +44,21 @@ public abstract class Persona {
         this.edad = edad;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
     public void indicarEdad(){
         System.out.println("Hola mi edad es: " + this.edad);

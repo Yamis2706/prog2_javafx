@@ -1,5 +1,6 @@
 package co.edu.uniquindio.cliente.clienteapp.model;
 
+import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.model.builder.VendedorBuilder;
 
 
@@ -12,6 +13,8 @@ public class Vendedor {
     private String direccion;
     private String celular;
     private Categoria categoria;
+    private String correo;
+    private String contrasena;
 
     public Vendedor() {
     }
@@ -22,8 +25,10 @@ public class Vendedor {
                     String edad,
                     String direccion,
                     String celular,
-                    Categoria categoria
-                   ) {
+                    Categoria categoria,
+                    String correo,
+                    String contrasena
+                    ) {
 
         this.nombre = nombre;
         this.apellido = apellido;
@@ -32,7 +37,10 @@ public class Vendedor {
         this.direccion = direccion;
         this.celular = celular;
         this.categoria = categoria;
+        this.correo = correo;
+        this.contrasena = contrasena;
     }
+
 
     public static VendedorBuilder builder(){
         return new VendedorBuilder();
@@ -66,6 +74,15 @@ public class Vendedor {
         return categoria;
     }
 
+    public String getCorreo() {
+        return correo;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
@@ -98,6 +115,15 @@ public class Vendedor {
         this.categoria = categoria;
     }
 
+    public String setCorreo() {
+        return correo;
+    }
+
+    public String setContrasena() {
+        return contrasena;
+    }
+
+
     @Override
     public String toString() {
         return "Vendedor{" +
@@ -108,6 +134,9 @@ public class Vendedor {
                 ", direccion='" + direccion + '\'' +
                 ", celular='" + celular + '\'' +
                 ", categoria='" + categoria + '\'' +
+                ", correo='" + correo + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+
                 '}';
     }
 }

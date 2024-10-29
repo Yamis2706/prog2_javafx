@@ -6,7 +6,7 @@ import java.util.ResourceBundle;
 
 import co.edu.uniquindio.cliente.clienteapp.controller.VendedorController;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
-import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
+import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.utils.Constantes;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;

@@ -1,7 +1,7 @@
 package co.edu.uniquindio.cliente.clienteapp.model.builder;
 
 
-import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
+import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 
 public class VendedorBuilder {
@@ -53,7 +53,7 @@ public class VendedorBuilder {
 
     public Vendedor build() {
         return new Vendedor(nombre, apellido, cedula, edad, direccion, celular
-                , categoria);
+                , categoria, , );
     }
 }
 

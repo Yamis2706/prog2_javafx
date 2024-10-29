@@ -1,27 +1,27 @@
 package co.edu.uniquindio.cliente.clienteapp.utils;
 
-import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
+import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
-import co.edu.uniquindio.cliente.clienteapp.model.MarketplaceObjeto;
+import co.edu.uniquindio.cliente.clienteapp.model.MarketplaceProducto;
 
 public class DataUtil {
 
-    public static MarketplaceObjeto inicializarDatos() throws Exception{
+    public static MarketplaceProducto inicializarDatos() throws Exception{
 
-        MarketplaceObjeto marketplaceObjeto = new MarketplaceObjeto();
+        MarketplaceProducto marketplaceProducto = new MarketplaceProducto();
 
-        marketplaceObjeto.crearVendedor( new Vendedor("Daniel ", "Quintero",
+        marketplaceProducto.crearVendedor( new Vendedor("Daniel ", "Quintero",
                 "12123",
-                "27", "Calle 123", "121212121", Categoria.BASICO) );
+                "27", "Calle 123", "121212121", Categoria.BASICO, , ) );
 
-        marketplaceObjeto.crearVendedor( new Vendedor("Emily", "Londoño",
+        marketplaceProducto.crearVendedor( new Vendedor("Emily", "Londoño",
                 "23232",
-                "19", "Calle 323", "4343434", Categoria.PREMIUM) );
+                "19", "Calle 323", "4343434", Categoria.PREMIUM, , ) );
 
-        marketplaceObjeto.crearVendedor( new Vendedor("Yamis", "Burgos",
-                "761781",
-                "38", "Calle 567", "312256", Categoria.VIP) );
+        marketplaceProducto.crearVendedor( new Vendedor("Yamis", "Burgos",
+                "109488",
+                "38", "Calle 567", "312256", Categoria.VIP, , ) );
 
-        return marketplaceObjeto;
+        return marketplaceProducto;
     }
 }

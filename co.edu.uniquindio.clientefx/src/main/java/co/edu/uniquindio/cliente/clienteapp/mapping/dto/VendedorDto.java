@@ -1,6 +1,6 @@
 package co.edu.uniquindio.cliente.clienteapp.mapping.dto;
 
-import co.edu.uniquindio.cliente.clienteapp.model.Categoria;
+import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
 
 public record VendedorDto(
         String nombre,

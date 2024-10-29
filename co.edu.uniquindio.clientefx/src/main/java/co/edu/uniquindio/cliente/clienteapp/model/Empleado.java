@@ -1,16 +1,16 @@
 package co.edu.uniquindio.cliente.clienteapp.model;
 
 public class Empleado extends  Persona{
-    MarketplaceObjeto ownedByVentaUQ;
+    MarketplaceProducto ownedByVentaUQ;
 
     public Empleado() {
     }
 
-    public MarketplaceObjeto getOwnedByVentaUQ() {
+    public MarketplaceProducto getOwnedByVentaUQ() {
         return ownedByVentaUQ;
     }
 
-    public void setOwnedByVentaUQ(MarketplaceObjeto ownedByVentaUQ) {
+    public void setOwnedByVentaUQ(MarketplaceProducto ownedByVentaUQ) {
         this.ownedByVentaUQ = ownedByVentaUQ;
     }
 
