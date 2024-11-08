@@ -38,9 +38,9 @@ public class PrincipalController implements IMarketplaceUQ {
     }
 
     @Override
-    public Venta crearVenta(Vendedor vendedor1, Vendedor vendedor2,
-                            ArrayList<Producto> productos, TipoVenta tipoVenta,
-                            EstadoVenta estadoVenta) throws Exception {
+    public Marketplace crearVenta(Vendedor vendedor1, Vendedor vendedor2,
+                                  ArrayList<Producto> productos, TipoVenta tipoVenta,
+                                  EstadoVenta estadoVenta) throws Exception {
         return marketplace.crearventa(vendedor1, vendedor2, productos,
                 tipoVenta, estadoVenta);
     }
@@ -51,30 +51,30 @@ public class PrincipalController implements IMarketplaceUQ {
     }
 
     @Override
-    public Venta obtenerVenta() {
+    public Marketplace obtenerVenta() {
         return marketplace.obtenerVenta();
     }
 
     @Override
-    public ArrayList<Venta> listarTodasVentas() throws Exception {
+    public ArrayList<Marketplace> listarTodasVentas() throws Exception {
         return marketplace.listarTodasVentas();
     }
 
 
     @Override
-    public ArrayList<Venta> listarVentasFecha(LocalDate fecha) throws Exception {
+    public ArrayList<Marketplace> listarVentasFecha(LocalDate fecha) throws Exception {
         return marketplace.listarVentasFecha(fecha);
     }
 
 
     @Override
-    public ArrayList<Venta> listarVentasEstado(EstadoVenta estadoVenta) throws Exception {
+    public ArrayList<Marketplace> listarVentasEstado(EstadoVenta estadoVenta) throws Exception {
         return marketplace.listarVentasEstado(estadoVenta);
     }
 
     @Override
-    public ArrayList<Venta> listarVentasFechaEstado(LocalDate fecha,
-                                                    EstadoVenta estadoVenta) throws Exception {
+    public ArrayList<Marketplace> listarVentasFechaEstado(LocalDate fecha,
+                                                          EstadoVenta estadoVenta) throws Exception {
         return marketplace.listarVentasFechaEstado(fecha, estadoVenta);
     }
 
@@ -180,10 +180,10 @@ public class PrincipalController implements IMarketplaceUQ {
         marketplace.agregarEmpleado(nombre, apellido, cedula, edad);
     }
 
-    public Venta crearVenta(String codigoVenta,
+    public Marketplace crearVenta(String codigoVenta,
                             float totalVenta,
                             ArrayList<Producto> productos,
-                            ArrayList<Venta> historialVentas,
+                            ArrayList<Marketplace> historialVentas,
                             LocalDate fechaCreacion,
                             TipoVenta tipoVenta,
                             EstadoVenta estadoVenta) throws Exception {
@@ -196,7 +196,7 @@ public class PrincipalController implements IMarketplaceUQ {
         marketplace.cambiarEstadoVenta(codigoVenta, estadoVenta, descripcion);
     }
 
-    public Venta buscarVentaCodigo(String codigoVenta) throws Exception {
+    public Marketplace buscarVentaCodigo(String codigoVenta) throws Exception {
         return marketplace.buscarVentaCodigo(codigoVenta);
     }
 
@@ -207,7 +207,7 @@ public class PrincipalController implements IMarketplaceUQ {
 
 
     @Override
-    public ArrayList<Venta> listarVentas() {
+    public ArrayList<Marketplace> listarVentas() {
         return marketplace.listarVentas();
     }
 

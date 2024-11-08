@@ -42,6 +42,7 @@ public class Vendedor {
     }
 
 
+
     public static VendedorBuilder builder(){
         return new VendedorBuilder();
     }
@@ -50,57 +51,44 @@ public class Vendedor {
         return nombre;
     }
 
-    public String getApellido() {
-        return apellido;
-    }
-
-    public String getCedula() {
-        return cedula;
-    }
-
-    public String getEdad() {
-        return edad;
-    }
-
-    public String getDireccion() {
-        return direccion;
-    }
-
-    public String getCelular() {
-        return celular;
-    }
-
-    public Categoria categoria (){
-        return categoria;
-    }
-
-    public String getCorreo() {
-        return correo;
-    }
-
-    public String getContrasena() {
-        return contrasena;
-    }
-
-
     public void setNombre(String nombre) {
         this.nombre = nombre;
+    }
+
+    public String getApellido() {
+        return apellido;
     }
 
     public void setApellido(String apellido) {
         this.apellido = apellido;
     }
 
+    public String getCedula() {
+        return cedula;
+    }
+
     public void setCedula(String cedula) {
         this.cedula = cedula;
+    }
+
+    public String getEdad() {
+        return edad;
     }
 
     public void setEdad(String edad) {
         this.edad = edad;
     }
 
+    public String getDireccion() {
+        return direccion;
+    }
+
     public void setDireccion(String direccion) {
         this.direccion = direccion;
+    }
+
+    public String getCelular() {
+        return celular;
     }
 
     public void setCelular(String celular) {
@@ -115,14 +103,21 @@ public class Vendedor {
         this.categoria = categoria;
     }
 
-    public String setCorreo() {
+    public String getCorreo() {
         return correo;
     }
 
-    public String setContrasena() {
+    public void setCorreo(String correo) {
+        this.correo = correo;
+    }
+
+    public String getContrasena() {
         return contrasena;
     }
 
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
 
     @Override
     public String toString() {

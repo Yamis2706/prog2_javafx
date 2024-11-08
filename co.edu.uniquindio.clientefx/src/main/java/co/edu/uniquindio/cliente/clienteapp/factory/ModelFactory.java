@@ -1,8 +1,10 @@
 package co.edu.uniquindio.cliente.clienteapp.factory;
 
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
-import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VentaDto;
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.MarketplaceDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.mappers.MarketplaceMappingImpl;
+import co.edu.uniquindio.cliente.clienteapp.model.Empleado;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 import co.edu.uniquindio.cliente.clienteapp.model.MarketplaceProducto;
 import co.edu.uniquindio.cliente.clienteapp.service.IMarketplaceMapping;
@@ -55,6 +57,24 @@ public class ModelFactory implements IModelFactoryService {
         marketplaceProducto.obtenerVendedor(cedula);
     }
 
+
+    @Override
+    public void crearEmpleado(EmpleadoDto empleado) throws Exception{
+        Empleado empleadoMappping = mapper.empleadoDtoToEmpleado(empleado);
+        marketplaceProducto.crearEmpleado(empleadoMappping);
+    }
+
+    @Override
+    public void editarEmpleado(EmpleadoDto empleado) throws Exception{
+        Empleado empleadoMappping = mapper.empleadoDtoToEmpleado(empleado);
+        marketplaceProducto.editarEmpleado(empleadoMappping);
+    }
+
+    @Override
+    public void eliminarEmpleado(String cedula) throws Exception{
+        marketplaceProducto.eliminarEmpleado(cedula);
+    }
+
     @Override
     public void obtenerEmpleado(String cedula) throws Exception{
         marketplaceProducto.obtenerEmpleado(cedula);
@@ -66,12 +86,17 @@ public class ModelFactory implements IModelFactoryService {
     }
 
     @Override
+    public List<EmpleadoDto> listarEmpleados() {
+        return mapper.getEmpleadosDto(marketplaceProducto.listarEmpleados());
+    }
+
+    @Override
     public void crearVinculo(Vendedor v1, Vendedor v2) {
 
     }
 
     @Override
-    public void calcularVentasMes(VentaDto venta) {
+    public void calcularVentasMes(MarketplaceDto venta) {
 
     }
 }

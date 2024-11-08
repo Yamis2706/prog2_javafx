@@ -15,8 +15,8 @@ public class MarketplaceProducto {
 
     private List<Vendedor> vendedores;
     private List<Empleado> empleados;
-    private List<Venta> ventas;
-    private List<Factura> facturas;
+    private List<Marketplace> ventas;
+    private List<Factura> factura;
 
 
     public MarketplaceProducto(){
@@ -24,7 +24,7 @@ public class MarketplaceProducto {
         this.vendedores = new ArrayList<>();
         this.empleados = new ArrayList<>();
         this.ventas = new ArrayList<>();
-        this.facturas = new ArrayList<>();
+        this.factura = new ArrayList<>();
 
     }
 
@@ -37,7 +37,7 @@ public class MarketplaceProducto {
         }
 
         if(vendedor.getApellido() == null || vendedor.getApellido().isBlank()){
-            throw new Exception(Constantes.INGRESE_APELIIDO);
+            throw new Exception(Constantes.INGRESE_APELLIDO);
         }
 
 
@@ -95,6 +95,10 @@ public class MarketplaceProducto {
         return vendedor;
     }
 
+    public Factura obtenerFactura(){
+        return (Factura) factura;
+    }
+
 
     private Vendedor getListaVendedores(String nombre,
                                         String apellido,
@@ -117,8 +121,12 @@ public class MarketplaceProducto {
     public List<Vendedor> listarVendedores() {
         return vendedores;
     }
+    public List<Empleado> listarEmpleados() {
+        return empleados;
+    }
 
-    public Venta crearVenta(Vendedor vendedor1, Vendedor vendedor2,
+
+    public Marketplace crearVenta(Vendedor vendedor1, Vendedor vendedor2,
                             ArrayList<Producto> productos,
                             TipoVenta tipoVenta, EstadoVenta estadoVenta) throws Exception {
 
@@ -129,14 +137,15 @@ public class MarketplaceProducto {
             creacionVenta = new VentaCredito();
         }
 
-        Venta venta = creacionVenta.crearVenta(vendedor1, vendedor2, productos, tipoVenta, estadoVenta);
-        int ventasMes = calcularVentasMes(venta.getFechaCreacion().getMonthValue());
+        Marketplace venta = creacionVenta.crearVenta(vendedor1, vendedor2, productos,
+                tipoVenta, estadoVenta);
+        int ventasMes = calcularVentasMes(venta.getFechaVenta().getMonth());
         float valor = creacionVenta.calcularCostoVenta(venta, ventasMes);
         String codigo = crearCodigoVenta();
         Factura factura = creacionVenta.crearFactura(venta, valor, codigo);
 
         ventas.add(venta);
-        facturas.add(factura);
+        //factura.add(factura);
         guardarDatos();
 
         return venta;
@@ -154,12 +163,68 @@ public class MarketplaceProducto {
     public int calcularVentasMes(int mes) {
         int ventasMes = 0;
 
-        for (Venta venta : ventas) {
-            if (venta.getFechaCreacion().getMonthValue() == mes) {
+        for (Marketplace venta : ventas) {
+            if (venta.getFechaVenta().getMonth() == mes) {
                 ventasMes++;
             }
         }
         return ventasMes;
+    }
+
+
+
+
+    public void crearEmpleado(Empleado empleado) throws Exception{
+
+
+        if(empleado.getNombre() == null || empleado.getNombre().isBlank()){
+            throw new Exception(Constantes.INGRESE_NOMBRE);
+        }
+
+        if(empleado.getApellido() == null || empleado.getApellido().isBlank()){
+            throw new Exception(Constantes.INGRESE_APELLIDO);
+        }
+
+
+        if(empleado.getCedula() == null || empleado.getCedula().isBlank()){
+            throw new Exception(Constantes.INGRESE_CEDULA);
+        }
+
+
+        if(empleado.getEdad() == null || empleado.getEdad().isBlank()){
+            throw new Exception(Constantes.INGRESE_EDAD);
+        }
+
+        if(empleado.getDireccion() == null || empleado.getDireccion().isBlank()){
+            throw new Exception(Constantes.INGRESE_DIRECCION);
+        }
+
+        if(empleado.getCelular() == null || empleado.getCelular().isBlank()){
+            throw new Exception(Constantes.INGRESE_CELULAR);
+        }
+
+
+        if( obtenerEmpleado( empleado.getCedula() ) !=null ){
+            throw new Exception(Constantes.CEDULA_EXISTENTE);
+        }
+
+        empleados.add(empleado);
+    }
+
+    public void editarEmpleado(Empleado empleadoEditado) throws Exception{
+        Empleado empleado = obtenerEmpleado(empleadoEditado.getCedula());
+        empleado.setNombre(empleadoEditado.getNombre());
+        empleado.setApellido(empleadoEditado.getApellido());
+        empleado.setCedula(empleadoEditado.getCedula());
+        empleado.setEdad(empleadoEditado.getEdad());
+        empleado.setDireccion(empleadoEditado.getDireccion());
+        empleado.setCelular(empleadoEditado.getCelular());
+
+    }
+
+    public void eliminarEmpleado(String cedula) throws Exception{
+        Empleado empleado = obtenerEmpleado(cedula);
+        empleados.remove(empleado);
     }
 
 

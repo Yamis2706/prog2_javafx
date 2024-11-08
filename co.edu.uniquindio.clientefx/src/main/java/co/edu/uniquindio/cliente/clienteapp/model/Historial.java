@@ -18,8 +18,8 @@ public class Historial implements Serializable {
     private final String codigoVenta;
     private float totalVenta;
     private ArrayList<Producto> productos;
-    private ArrayList <Venta> historialVentas;
-    private LocalDate fechaCreacion;
+    private ArrayList <Marketplace> listaVentasAsociadas;
+    private LocalDate fechaVenta;
     private TipoVenta tipoVenta;
     private EstadoVenta estadoVenta;
 

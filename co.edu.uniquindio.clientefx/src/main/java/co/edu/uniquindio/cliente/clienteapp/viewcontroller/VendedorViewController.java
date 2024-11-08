@@ -170,7 +170,7 @@ public class VendedorViewController implements Initializable {
                 listaVendedores.set(indice, editado);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Mensaje urgente");
+                alert.setTitle("Mensaje importante");
                 alert.setContentText(Constantes.VENDEDOR_ACTUALIZADO);
                 alert.show();
 
@@ -207,7 +207,7 @@ public class VendedorViewController implements Initializable {
                 listaVendedores.remove(vendedorSeleccionado);
 
                 Alert alert = new Alert(Alert.AlertType.INFORMATION);
-                alert.setTitle("Mensaje urgente");
+                alert.setTitle("Mensaje importante");
                 alert.setContentText(Constantes.VENDEDOR_ELIMINADO);
                 alert.show();
 
@@ -266,7 +266,7 @@ public class VendedorViewController implements Initializable {
             listaVendedores.add(nuevo);
 
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
-            alert.setTitle("Mensaje urgente");
+            alert.setTitle("Mensaje importante");
             alert.setContentText(Constantes.VENDEDOR_AGREGADO);
             alert.show();
 

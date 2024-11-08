@@ -1,7 +1,9 @@
 package co.edu.uniquindio.cliente.clienteapp.mapping.mappers;
 
 
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.EmpleadoDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
+import co.edu.uniquindio.cliente.clienteapp.model.Empleado;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 import co.edu.uniquindio.cliente.clienteapp.service.IMarketplaceMapping;
 
@@ -64,4 +66,58 @@ public class MarketplaceMappingImpl implements IMarketplaceMapping {
                 .categoria(vendedorDto.categoria())
                 .build();
     }
+
+
+    @Override
+    public List<EmpleadoDto> getEmpleadosDto(List<Empleado> listaEmpleados) {
+        if(listaEmpleados == null){
+            return null;
+        }
+        List<EmpleadoDto> listaEmpleadosDto =
+                new ArrayList<>(listaEmpleados.size());
+        for (Empleado empleado : listaEmpleados) {
+            listaEmpleadosDto.add(empleadoToEmpleadoDto(empleado));
+        }
+
+        return listaEmpleadosDto;
+    }
+
+
+    @Override
+    public List<Empleado> getEmpleados(List<EmpleadoDto> listaEmpleadosDto) {
+        if(listaEmpleadosDto == null){
+            return null;
+        }
+        List<Empleado> listaEmpleados =
+                new ArrayList<>(listaEmpleadosDto.size());
+        for (EmpleadoDto empleado : listaEmpleadosDto) {
+            listaEmpleados.add(empleadoDtoToEmpleado(empleado));
+        }
+
+        return listaEmpleados;
+    }
+
+    @Override
+    public EmpleadoDto empleadoToEmpleadoDto(Empleado empleado) {
+        return new EmpleadoDto(
+                empleado.getNombre(),
+                empleado.getApellido(),
+                empleado.getCedula(),
+                empleado.getEdad(),
+                empleado.getDireccion(),
+                empleado.getCelular());
+    }
+
+    @Override
+    public Empleado empleadoDtoToEmpleado(EmpleadoDto empleadoDto) {
+        return Empleado.builder()
+                .nombre(empleadoDto.nombre())
+                .apellido(empleadoDto.apellido())
+                .cedula(empleadoDto.cedula())
+                .edad(empleadoDto.edad())
+                .direccion(empleadoDto.direccion())
+                .celular(empleadoDto.celular())
+                .build();
+    }
 }
+

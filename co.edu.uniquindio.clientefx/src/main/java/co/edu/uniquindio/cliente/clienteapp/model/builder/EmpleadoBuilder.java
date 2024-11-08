@@ -1,10 +1,10 @@
 package co.edu.uniquindio.cliente.clienteapp.model.builder;
 
-
 import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
+import co.edu.uniquindio.cliente.clienteapp.model.Empleado;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 
-public class VendedorBuilder {
+public class EmpleadoBuilder {
 
     protected String nombre;
     protected String apellido;
@@ -12,48 +12,43 @@ public class VendedorBuilder {
     protected String edad;
     protected String direccion;
     protected String celular;
-    protected Categoria categoria;
 
 
 
-    public VendedorBuilder nombre(String nombre) {
+
+    public EmpleadoBuilder nombre(String nombre) {
         this.nombre = nombre;
         return this;
     }
 
-    public VendedorBuilder apellido(String apellido) {
+    public EmpleadoBuilder apellido(String apellido) {
         this.apellido = apellido;
         return this;
     }
 
-    public VendedorBuilder cedula(String cedula) {
+    public EmpleadoBuilder cedula(String cedula) {
         this.cedula = cedula;
         return this;
     }
 
-    public VendedorBuilder edad(String edad) {
+    public EmpleadoBuilder edad(String edad) {
         this.edad = edad;
         return this;
     }
 
-    public VendedorBuilder direccion(String direccion) {
+    public EmpleadoBuilder direccion(String direccion) {
         this.direccion = direccion;
         return this;
     }
 
-    public VendedorBuilder celular(String celular) {
+    public EmpleadoBuilder celular(String celular) {
         this.celular = celular;
         return this;
     }
 
-    public VendedorBuilder categoria(Categoria categoria) {
-        this.categoria = categoria;
-        return this;
-    }
 
-    public Vendedor build() {
-        return new Vendedor(nombre, apellido, cedula, edad, direccion, celular
-                , categoria );
+    public Empleado build() {
+        return new Empleado(nombre, apellido, cedula, edad, direccion, celular
+                 );
     }
 }
-

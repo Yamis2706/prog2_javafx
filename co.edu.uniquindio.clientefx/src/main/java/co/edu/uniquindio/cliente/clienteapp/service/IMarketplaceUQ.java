@@ -61,21 +61,21 @@ public interface IMarketplaceUQ {
 
     Marketplace obtenerVenta(String numeroVenta);
 
-    Venta crearVenta(Vendedor vendedor1, Vendedor vendedor2,
+    Marketplace crearVenta(Vendedor vendedor1, Vendedor vendedor2,
                      ArrayList<Producto> productos, TipoVenta tipoVenta,
                      EstadoVenta estadoVenta) throws Exception;
 
     Factura obtenerFactura();
 
-    Venta obtenerVenta();
+    Marketplace obtenerVenta();
 
-    ArrayList<Venta> listarTodasVentas() throws Exception;
+    ArrayList<Marketplace> listarTodasVentas() throws Exception;
 
-    ArrayList<Venta> listarVentasFecha(LocalDate fecha) throws Exception;
+    ArrayList<Marketplace> listarVentasFecha(LocalDate fecha) throws Exception;
 
-    ArrayList<Venta> listarVentasEstado(EstadoVenta estadoVenta) throws Exception;
+    ArrayList<Marketplace> listarVentasEstado(EstadoVenta estadoVenta) throws Exception;
 
-    ArrayList<Venta> listarVentasFechaEstado(LocalDate fecha,
+    ArrayList<Marketplace> listarVentasFechaEstado(LocalDate fecha,
                                              EstadoVenta estadoVenta) throws Exception;
 
     Vendedor agregarVendedor(String cedula, String nombre,
@@ -100,7 +100,7 @@ public interface IMarketplaceUQ {
 
     ArrayList<Historial> consultarHistorialEstados(String codigoEnvio) throws Exception;
 
-    ArrayList<Venta> listarVentas();
+    ArrayList<Marketplace> listarVentas();
 
     void editarEmpleado(String nombre, String direccion, String cedula,
                         String correoElectronico, String contrasena) throws Exception;

@@ -4,7 +4,7 @@ public abstract class Persona {
     private String nombre;
     private String apellido;
     private String cedula;
-    private int edad;
+    private String edad;
     private String correo;
     private String contrasena;
 
@@ -36,11 +36,11 @@ public abstract class Persona {
         this.cedula = cedula;
     }
 
-    public int getEdad() {
+    public String getEdad() {
         return edad;
     }
 
-    public void setEdad(int edad) {
+    public void setEdad(String edad) {
         this.edad = edad;
     }
 
