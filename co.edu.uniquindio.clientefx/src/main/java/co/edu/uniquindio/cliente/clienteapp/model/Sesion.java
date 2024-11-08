@@ -7,7 +7,7 @@ public class Sesion implements Serializable {
     public static Sesion INSTANCIA;
 
 
-    private Vendedor vendedor;
+    private Empleado empleado;
 
     private Marketplace marketplace;
 
@@ -20,10 +20,8 @@ public class Sesion implements Serializable {
         }
         return INSTANCIA;
     }
-    /**
-     * Metodo que se encarga de volver nulo al usuario al momento de cerrar sesion
-     */
+
     public void cerrarSesion() {
-        vendedor = null;
+        empleado = null;
     }
 }

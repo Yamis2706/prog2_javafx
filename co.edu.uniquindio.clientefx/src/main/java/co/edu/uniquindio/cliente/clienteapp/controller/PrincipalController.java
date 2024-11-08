@@ -6,10 +6,12 @@ import co.edu.uniquindio.cliente.clienteapp.enums.EstadoVenta;
 import co.edu.uniquindio.cliente.clienteapp.enums.TipoVenta;
 import co.edu.uniquindio.cliente.clienteapp.model.*;
 import co.edu.uniquindio.cliente.clienteapp.service.IMarketplaceUQ;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.stage.Stage;
 
 import java.time.LocalDate;
@@ -310,6 +312,16 @@ public class PrincipalController implements IMarketplaceUQ {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void cerrarSesion(ActionEvent event) {
+        principalController.mostrarAlerta("Se ha cerrado la sesión " +
+                        "correctamente",
+                Alert.AlertType.INFORMATION);
+        principalController.cerrarVentana(lblNombre);
+        principalController.getInstanciaSesion().cerrarSesion();
+        principalController.navegar("/login.fxml", "Marketplace - Iniciar " +
+                "Sesión");
     }
 }
 

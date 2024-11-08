@@ -105,7 +105,12 @@ public class MarketplaceMappingImpl implements IMarketplaceMapping {
                 empleado.getCedula(),
                 empleado.getEdad(),
                 empleado.getDireccion(),
-                empleado.getCelular());
+                empleado.getCelular(),
+                empleado.getCorreo(),
+                empleado.getContrasena()
+
+        );
+
     }
 
     @Override
@@ -117,6 +122,9 @@ public class MarketplaceMappingImpl implements IMarketplaceMapping {
                 .edad(empleadoDto.edad())
                 .direccion(empleadoDto.direccion())
                 .celular(empleadoDto.celular())
+                .correo(empleadoDto.correo())
+                .contrasena(empleadoDto.contrasena())
+
                 .build();
     }
 }

@@ -1,9 +1,7 @@
 package co.edu.uniquindio.cliente.clienteapp.viewcontroller;
 
 import co.edu.uniquindio.cliente.clienteapp.controller.EmpleadoController;
-import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.EmpleadoDto;
-import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.utils.Constantes;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.collections.FXCollections;
@@ -11,7 +9,7 @@ import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Alert;
+import javafx.scene.control.*;
 
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,14 +23,75 @@ public class EmpleadoViewController implements Initializable {
     private EmpleadoDto empleadoSeleccionado;
 
 
+    @FXML
+    private Button btnActualizarEmpleado;
+
+    @FXML
+    private Button btnAgregarEmpleado;
+
+    @FXML
+    private Button btnBuscarEmpleado;
+
+    @FXML
+    private Button btnEliminarEmpleado;
+
+    @FXML
+    private Button btnNuevoEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcApellidoEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcCedulaEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcCelularEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcDireccionEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcEdadEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcNombreEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcContrasenaEmpleado;
+
+    @FXML
+    private TableColumn<EmpleadoDto, String> tcCorreoEmpleado;
 
 
+    @FXML
+    private TableView<EmpleadoDto> tvEmpleado;
 
+    @FXML
+    private TextField txtApellidoEmpleado;
 
+    @FXML
+    private TextField txtBuscarEmpleado;
 
+    @FXML
+    private TextField txtCedulaEmpleado;
 
+    @FXML
+    private TextField txtCelularEmpleado;
 
+    @FXML
+    private TextField txtDireccionEmpleado;
 
+    @FXML
+    private TextField txtEdadEmpleado;
+
+    @FXML
+    private TextField txtNombreEmpleado;
+
+    @FXML
+    private TextField txtCorreoEmpleado;
+
+    @FXML
+    private TextField txtContrasenaEmpleado;
 
 
 
@@ -55,12 +114,14 @@ public class EmpleadoViewController implements Initializable {
     }
 
     private void initDataBinding() {
-        tcNombre.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
-        tcApellido.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
-        tcCedula.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().cedula()));
-        tcEdad.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().edad()));
-        tcDireccion.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
-        tcCelular.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().celular()));
+        tcNombreEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().nombre()));
+        tcApellidoEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().apellido()));
+        tcCedulaEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().cedula()));
+        tcEdadEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().edad()));
+        tcDireccionEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().direccion()));
+        tcCelularEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().celular()));
+        tcCorreoEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().correo()));
+        tcContrasenaEmpleado.setCellValueFactory(cellData -> new SimpleStringProperty(cellData.getValue().contrasena()));
     }
 
     private void listenerSelection() {
@@ -71,21 +132,17 @@ public class EmpleadoViewController implements Initializable {
         });
     }
 
-
-
-
-
-
-
     private void mostrarInformacionEmpleado(EmpleadoDto empleadoSeleccionado) {
         if(empleadoSeleccionado != null){
 
-            txtNombre.setText(empleadoSeleccionado.nombre());
-            txtApellido.setText(empleadoSeleccionado.apellido());
-            txtCedula.setText(empleadoSeleccionado.cedula());
-            txtEdad.setText(String.valueOf(empleadoSeleccionado.edad()));
-            txtDireccion.setText(empleadoSeleccionado.direccion());
-            txtCelular.setText(empleadoSeleccionado.celular());
+            txtNombreEmpleado.setText(empleadoSeleccionado.nombre());
+            txtApellidoEmpleado.setText(empleadoSeleccionado.apellido());
+            txtCedulaEmpleado.setText(empleadoSeleccionado.cedula());
+            txtEdadEmpleado.setText(String.valueOf(empleadoSeleccionado.edad()));
+            txtDireccionEmpleado.setText(empleadoSeleccionado.direccion());
+            txtCelularEmpleado.setText(empleadoSeleccionado.celular());
+            txtCorreoEmpleado.setText(empleadoSeleccionado.correo());
+            txtContrasenaEmpleado.setText(empleadoSeleccionado.contrasena());
 
         }
     }
@@ -95,13 +152,15 @@ public class EmpleadoViewController implements Initializable {
         if(empleadoSeleccionado!=null){
 
             EmpleadoDto editado = new EmpleadoDto(
-                    txtNombre.getText(),
-                    txtApellido.getText(),
-                    txtCedula.getText(),
-                    txtEdad.getText(),
-                    txtDireccion.getText(),
-                    txtCelular.getText(),
-                    empleadoSeleccionado
+                    txtNombreEmpleado.getText(),
+                    txtApellidoEmpleado.getText(),
+                    txtCedulaEmpleado.getText(),
+                    txtEdadEmpleado.getText(),
+                    txtDireccionEmpleado.getText(),
+                    txtCelularEmpleado.getText(),
+                    txtCorreoEmpleado.getText(),
+                    txtContrasenaEmpleado.getText()
+
             );
 
             try {
@@ -166,23 +225,28 @@ public class EmpleadoViewController implements Initializable {
     @FXML
     void onNuevoEmpleado(ActionEvent event) {
 
-        txtNombre.setText("");
-        txtApellido.setText("");
-        txtCedula.setText("");
-        txtEdad.setText("");
-        txtDireccion.setText("");
-        txtCelular.setText("");
+        txtNombreEmpleado.setText("");
+        txtApellidoEmpleado.setText("");
+        txtCedulaEmpleado.setText("");
+        txtEdadEmpleado.setText("");
+        txtDireccionEmpleado.setText("");
+        txtCelularEmpleado.setText("");
+        txtCorreoEmpleado.setText("");
+        txtContrasenaEmpleado.setText("");
     }
 
     private void agregarEmpleado() {
 
         EmpleadoDto nuevo = new EmpleadoDto(
-                txtNombre.getText(),
-                txtApellido.getText(),
-                txtCedula.getText(),
-                txtEdad.getText(),
-                txtDireccion.getText(),
-                txtCelular.getText()
+                txtNombreEmpleado.getText(),
+                txtApellidoEmpleado.getText(),
+                txtCedulaEmpleado.getText(),
+                txtEdadEmpleado.getText(),
+                txtDireccionEmpleado.getText(),
+                txtCelularEmpleado.getText(),
+                txtCorreoEmpleado.getText(),
+                txtContrasenaEmpleado.getText()
+
         );
 
         try {

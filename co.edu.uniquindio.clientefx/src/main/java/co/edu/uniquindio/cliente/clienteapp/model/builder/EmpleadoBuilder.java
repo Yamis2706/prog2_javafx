@@ -12,6 +12,8 @@ public class EmpleadoBuilder {
     protected String edad;
     protected String direccion;
     protected String celular;
+    protected String correo;
+    protected String contrasena;
 
 
 
@@ -46,9 +48,20 @@ public class EmpleadoBuilder {
         return this;
     }
 
+    public EmpleadoBuilder correo(String celular) {
+        this.correo = correo;
+        return this;
+    }
+
+    public EmpleadoBuilder contrasena(String celular) {
+        this.contrasena = contrasena;
+        return this;
+    }
+
 
     public Empleado build() {
-        return new Empleado(nombre, apellido, cedula, edad, direccion, celular
-                 );
+        return new Empleado(nombre,  apellido,  cedula,  edad,
+                 direccion,  celular, correo,
+                 contrasena);
     }
 }

@@ -8,6 +8,8 @@ public class Constantes {
     public static final String INGRESE_EDAD = "La edad es un campo obligatorio";
     public static final String INGRESE_DIRECCION = "La dirección es um campo obligatorio";
     public static final String INGRESE_CELULAR = "El celular es un campo obligatorio";
+    public static final String INGRESE_CORREO = "El correo es un campo obligatorio";
+    public static final String INGRESE_CONTRASENA = "La contrasena es un campo obligatorio";
     public static final String VENDEDOR_AGREGADO = "El vendedor se ha agregado con éxito";
     public static final String VENDEDOR_ELIMINADO = "El Vendedor se ha eliminado con éxito";
     public static final String VENDEDOR_ACTUALIZADO = "El vendedor se ha actualizado con éxito";

@@ -2,6 +2,7 @@ module co.edu.uniquindio.cliente.clienteapp {
     requires javafx.controls;
     requires javafx.fxml;
     requires static lombok;
+    requires jdk.management;
 
 
     opens co.edu.uniquindio.cliente.clienteapp to javafx.fxml;

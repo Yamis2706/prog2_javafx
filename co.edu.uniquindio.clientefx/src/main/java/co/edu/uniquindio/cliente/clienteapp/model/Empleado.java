@@ -13,7 +13,6 @@ public class Empleado extends  Persona{
     private String edad;
     private String direccion;
     private String celular;
-    private Categoria categoria;
     private String correo;
     private String contrasena;
     MarketplaceProducto ownedByVentaUQ;
@@ -22,7 +21,7 @@ public class Empleado extends  Persona{
     }
 
     public Empleado(String nombre, String apellido, String cedula, String edad,
-                    String direccion, String celular, Categoria categoria, String correo,
+                    String direccion, String celular, String correo,
                     String contrasena) {
         this.nombre = nombre;
         this.apellido = apellido;
@@ -30,12 +29,12 @@ public class Empleado extends  Persona{
         this.edad = edad;
         this.direccion = direccion;
         this.celular = celular;
-        this.categoria = categoria;
         this.correo = correo;
         this.contrasena = contrasena;
 
 
     }
+
 
 
     public static EmpleadoBuilder builder(){
@@ -97,14 +96,6 @@ public class Empleado extends  Persona{
         this.celular = celular;
     }
 
-    public Categoria getCategoria() {
-        return categoria;
-    }
-
-    public void setCategoria(Categoria categoria) {
-        this.categoria = categoria;
-    }
-
     @Override
     public String getCorreo() {
         return correo;
@@ -125,4 +116,17 @@ public class Empleado extends  Persona{
         this.contrasena = contrasena;
     }
 
+    @Override
+    public String toString() {
+        return "Empleado{" +
+                "nombre='" + nombre + '\'' +
+                ", apellido='" + apellido + '\'' +
+                ", cedula='" + cedula + '\'' +
+                ", edad='" + edad + '\'' +
+                ", direccion='" + direccion + '\'' +
+                ", celular='" + celular + '\'' +
+                ", correo='" + correo + '\'' +
+                ", contrasena='" + contrasena + '\'' +
+                '}';
+    }
 }

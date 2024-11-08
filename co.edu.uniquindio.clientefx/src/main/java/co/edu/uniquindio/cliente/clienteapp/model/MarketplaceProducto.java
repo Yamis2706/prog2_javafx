@@ -7,6 +7,7 @@ import co.edu.uniquindio.cliente.clienteapp.factory.VentaContado;
 import co.edu.uniquindio.cliente.clienteapp.factory.VentaCredito;
 import co.edu.uniquindio.cliente.clienteapp.service.CreacionVenta;
 import co.edu.uniquindio.cliente.clienteapp.utils.Constantes;
+import com.sun.management.UnixOperatingSystemMXBean;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -145,7 +146,7 @@ public class MarketplaceProducto {
         Factura factura = creacionVenta.crearFactura(venta, valor, codigo);
 
         ventas.add(venta);
-        //factura.add(factura);
+        //facturas.add(factura);
         guardarDatos();
 
         return venta;
@@ -203,6 +204,13 @@ public class MarketplaceProducto {
             throw new Exception(Constantes.INGRESE_CELULAR);
         }
 
+        if(empleado.getCorreo() == null || empleado.getCorreo().isBlank()){
+            throw new Exception(Constantes.INGRESE_CORREO);
+        }
+
+        if(empleado.getContrasena() == null || empleado.getContrasena().isBlank()){
+            throw new Exception(Constantes.INGRESE_CONTRASENA);
+        }
 
         if( obtenerEmpleado( empleado.getCedula() ) !=null ){
             throw new Exception(Constantes.CEDULA_EXISTENTE);
@@ -240,4 +248,23 @@ public class MarketplaceProducto {
         return empleado;
     }
 
+
+    public Empleado buscarEmpleado(String cedula) throws Exception{
+        for (Empleado empleado: empleados){
+            if(empleado.getCedula().equals(cedula)){
+                return empleado;
+            }
+        }
+        return null;
+    }
+
+    public Empleado validarUsuario(String cedula, String contrasena) throws Exception{
+        Empleado empleado = buscarEmpleado(cedula);
+        if (empleado!= null){
+            if (empleado.getContrasena().equals(contrasena)){
+                return empleado;
+            }
+        }
+        throw new Exception("Los datos de acceso son incorrectos");
+    }
 }

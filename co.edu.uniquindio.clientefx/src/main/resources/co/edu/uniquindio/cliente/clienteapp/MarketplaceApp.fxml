@@ -24,7 +24,15 @@
           </Tab>
           <Tab text="Empleado">
             <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="551.0" prefWidth="743.0">
+                    <children>
+                        <SplitPane layoutX="11.0" layoutY="6.0" orientation="VERTICAL" prefHeight="498.0" prefWidth="665.0">
+                            <items>
+                                <fx:include source="Empleado.fxml" />
+                            </items>
+                        </SplitPane>
+                    </children>
+                </AnchorPane>
             </content>
           </Tab>
             <Tab text="Objetos">

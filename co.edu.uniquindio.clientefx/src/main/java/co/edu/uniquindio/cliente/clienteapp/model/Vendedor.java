@@ -42,7 +42,6 @@ public class Vendedor {
     }
 
 
-
     public static VendedorBuilder builder(){
         return new VendedorBuilder();
     }

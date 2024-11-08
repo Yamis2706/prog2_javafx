@@ -14,7 +14,15 @@ public class VendedorBuilder {
     protected String celular;
     protected Categoria categoria;
 
-
+    public VendedorBuilder() {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.edad = edad;
+        this.direccion = direccion;
+        this.celular = celular;
+        this.categoria = categoria;
+    }
 
     public VendedorBuilder nombre(String nombre) {
         this.nombre = nombre;
@@ -52,8 +60,7 @@ public class VendedorBuilder {
     }
 
     public Vendedor build() {
-        return new Vendedor(nombre, apellido, cedula, edad, direccion, celular
-                , categoria );
+        return new Vendedor();
     }
 }
 
