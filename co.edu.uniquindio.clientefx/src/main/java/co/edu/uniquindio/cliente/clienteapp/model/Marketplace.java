@@ -20,7 +20,6 @@ public class Marketplace {
     private Empleado empleadoAsociado;
     private Vendedor vendedorAsociado;
     List<Producto> listaProductosAsociados = new ArrayList<>();
-    List<Marketplace>listaVentasAsociadas = new ArrayList<>();
 
 
     public Marketplace() {
@@ -106,85 +105,16 @@ public class Marketplace {
     }
 
 
-
-    public Marketplace crearventa(Vendedor vendedor1, Vendedor vendedor2,
-                            ArrayList<Producto> productos, TipoVenta tipoVenta,
-                            EstadoVenta estadoVenta) {
-        return null;
-    }
-
     public Factura obtenerFactura() {
-        return null;
-    }
-
-    public Marketplace obtenerVenta() {
-        return null;
-    }
-
-    public ArrayList<Marketplace> listarTodasVentas() {
-        return null;
-    }
-
-    public ArrayList<Marketplace> listarVentasFecha(LocalDate fecha) {
-        return null;
-    }
-
-    public ArrayList<Marketplace> listarVentasEstado(EstadoVenta estadoVenta) {
-        return null;
-    }
-
-    public ArrayList<Marketplace> listarVentasFechaEstado(LocalDate fecha,
-                                                EstadoVenta estadoVenta) {
-        return null;
-    }
-
-    public Vendedor agregarVendedor(String nombre, String apellido, String cedula, String edad,
-                                    String direccion, String celular, Categoria categoria) {
-        return null;
-    }
-
-    public Vendedor obtenerVendedor(String cedula) {
-        return null;
-    }
-
-    public Empleado obtenerEmpleado(String cedula) {
-        return null;
-    }
-
-    public Empleado validarUsuario(String cedula, String contrasena) {
-        return null;
-    }
-
-    public void agregarEmpleado(String nombre, String apellido, String cedula, String edad) {
-    }
-
-    public Marketplace crearventa() {
         return null;
     }
 
     public void cambiarEstadoVenta(String codigoVenta, EstadoVenta estadoVenta, String descripcion) {
     }
 
-    public Marketplace buscarVentaCodigo(String codigoVenta) {
-        return null;
-    }
-
     public ArrayList<Historial> consultarHistorialEstados(String codigoEnvio) {
         return null;
     }
-
-    public ArrayList<Marketplace> listarVentas() {
-        return null;
-    }
-
-    public void editarEmpleado(String nombre, String direccion, String cedula,
-                               String correoElectronico, String contrasena) {
-    }
-
-    public int calcularVentasMes(int mes) {
-        return mes;
-    }
-
 
     @Override
     public String toString() {

@@ -5,6 +5,7 @@ import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.MarketplaceDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.mappers.MarketplaceMappingImpl;
 import co.edu.uniquindio.cliente.clienteapp.model.Empleado;
+import co.edu.uniquindio.cliente.clienteapp.model.Persona;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 import co.edu.uniquindio.cliente.clienteapp.model.MarketplaceProducto;
 import co.edu.uniquindio.cliente.clienteapp.service.IMarketplaceMapping;
@@ -99,4 +100,9 @@ public class ModelFactory implements IModelFactoryService {
     public void calcularVentasMes(MarketplaceDto venta) {
 
     }
+
+    public Persona validarUsuario(String correo, String contrasena) throws Exception{
+        return marketplaceProducto.validarUsuario(correo, contrasena);
+    }
+
 }

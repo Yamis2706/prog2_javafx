@@ -6,15 +6,8 @@ import co.edu.uniquindio.cliente.clienteapp.model.builder.VendedorBuilder;
 
 public class Empleado extends  Persona{
 
-
-    private String nombre;
-    private String apellido;
-    private String cedula;
-    private String edad;
     private String direccion;
     private String celular;
-    private String correo;
-    private String contrasena;
     MarketplaceProducto ownedByVentaUQ;
 
     public Empleado() {
@@ -23,16 +16,9 @@ public class Empleado extends  Persona{
     public Empleado(String nombre, String apellido, String cedula, String edad,
                     String direccion, String celular, String correo,
                     String contrasena) {
-        this.nombre = nombre;
-        this.apellido = apellido;
-        this.cedula = cedula;
-        this.edad = edad;
+        super(nombre, apellido, cedula, edad, correo, contrasena);
         this.direccion = direccion;
         this.celular = celular;
-        this.correo = correo;
-        this.contrasena = contrasena;
-
-
     }
 
 
@@ -41,44 +27,6 @@ public class Empleado extends  Persona{
         return new EmpleadoBuilder();
     }
 
-    @Override
-    public String getNombre() {
-        return nombre;
-    }
-
-    @Override
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    @Override
-    public String getApellido() {
-        return apellido;
-    }
-
-    @Override
-    public void setApellido(String apellido) {
-        this.apellido = apellido;
-    }
-
-    @Override
-    public String getCedula() {
-        return cedula;
-    }
-
-    @Override
-    public void setCedula(String cedula) {
-        this.cedula = cedula;
-    }
-
-    @Override
-    public String getEdad() {
-        return edad;
-    }
-
-    public void setEdad(String edad) {
-        this.edad = edad;
-    }
 
     public String getDireccion() {
         return direccion;
@@ -96,37 +44,5 @@ public class Empleado extends  Persona{
         this.celular = celular;
     }
 
-    @Override
-    public String getCorreo() {
-        return correo;
-    }
 
-    @Override
-    public void setCorreo(String correo) {
-        this.correo = correo;
-    }
-
-    @Override
-    public String getContrasena() {
-        return contrasena;
-    }
-
-    @Override
-    public void setContrasena(String contrasena) {
-        this.contrasena = contrasena;
-    }
-
-    @Override
-    public String toString() {
-        return "Empleado{" +
-                "nombre='" + nombre + '\'' +
-                ", apellido='" + apellido + '\'' +
-                ", cedula='" + cedula + '\'' +
-                ", edad='" + edad + '\'' +
-                ", direccion='" + direccion + '\'' +
-                ", celular='" + celular + '\'' +
-                ", correo='" + correo + '\'' +
-                ", contrasena='" + contrasena + '\'' +
-                '}';
-    }
 }

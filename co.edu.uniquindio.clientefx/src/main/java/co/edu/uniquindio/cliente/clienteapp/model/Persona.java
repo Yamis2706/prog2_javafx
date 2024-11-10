@@ -8,6 +8,14 @@ public abstract class Persona {
     private String correo;
     private String contrasena;
 
+    public Persona(String nombre, String apellido, String cedula, String edad, String correo, String contrasena) {
+        this.nombre = nombre;
+        this.apellido = apellido;
+        this.cedula = cedula;
+        this.edad = edad;
+        this.correo = correo;
+        this.contrasena = contrasena;
+    }
 
     public Persona() {
     }

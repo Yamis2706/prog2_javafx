@@ -9,24 +9,20 @@ import co.edu.uniquindio.cliente.clienteapp.service.CreacionVenta;
 import co.edu.uniquindio.cliente.clienteapp.utils.Constantes;
 import com.sun.management.UnixOperatingSystemMXBean;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class MarketplaceProducto {
 
-    private List<Vendedor> vendedores;
-    private List<Empleado> empleados;
+    private List<Persona> personas;
     private List<Marketplace> ventas;
     private List<Factura> factura;
 
-
     public MarketplaceProducto(){
-
-        this.vendedores = new ArrayList<>();
-        this.empleados = new ArrayList<>();
+        this.personas = new ArrayList<>();
         this.ventas = new ArrayList<>();
         this.factura = new ArrayList<>();
-
     }
 
 
@@ -64,7 +60,7 @@ public class MarketplaceProducto {
             throw new Exception(Constantes.CEDULA_EXISTENTE);
         }
 
-        vendedores.add(vendedor);
+        personas.add(vendedor);
     }
 
     public void editarVendedor(Vendedor vendedorEditado) throws Exception{
@@ -81,16 +77,16 @@ public class MarketplaceProducto {
 
     public void eliminarVendedor(String cedula) throws Exception{
         Vendedor vendedor = obtenerVendedor(cedula);
-        vendedores.remove(vendedor);
+        personas.remove(vendedor);
     }
 
     public Vendedor obtenerVendedor(String cedula){
 
         Vendedor vendedor= null;
 
-        for (int i = 0; i < vendedores.size(); i++) {
-            if(vendedores.get(i).getCedula().equals(cedula)){
-                vendedor = vendedores.get(i);
+        for (int i = 0; i < personas.size(); i++) {
+            if(personas.get(i).getCedula().equals(cedula) && personas.get(i) instanceof Vendedor){
+                vendedor = (Vendedor) personas.get(i);
             }
         }
         return vendedor;
@@ -120,12 +116,28 @@ public class MarketplaceProducto {
     }
 
     public List<Vendedor> listarVendedores() {
-        return vendedores;
+        List<Vendedor> lista = new ArrayList<>();
+
+        for(Persona persona : personas){
+            if(persona instanceof  Vendedor){
+                lista.add((Vendedor) persona);
+            }
+        }
+
+        return lista;
+
     }
     public List<Empleado> listarEmpleados() {
-        return empleados;
-    }
+        List<Empleado> lista = new ArrayList<>();
 
+        for(Persona persona : personas){
+            if(persona instanceof  Empleado){
+                lista.add((Empleado) persona);
+            }
+        }
+
+        return lista;
+    }
 
     public Marketplace crearVenta(Vendedor vendedor1, Vendedor vendedor2,
                             ArrayList<Producto> productos,
@@ -152,6 +164,23 @@ public class MarketplaceProducto {
         return venta;
 
     }
+
+    public ArrayList<Marketplace> listarTodasVentas() {
+        return null;
+    }
+
+    public ArrayList<Marketplace> listarVentasFecha(LocalDate fecha) {
+        return null;
+    }
+
+    public ArrayList<Marketplace> listarVentasEstado(EstadoVenta estadoVenta) {
+        return null;
+    }
+
+    public Marketplace buscarVentaCodigo(String codigoVenta) {
+        return null;
+    }
+
 
     private void guardarDatos() {
     }
@@ -216,7 +245,7 @@ public class MarketplaceProducto {
             throw new Exception(Constantes.CEDULA_EXISTENTE);
         }
 
-        empleados.add(empleado);
+        personas.add(empleado);
     }
 
     public void editarEmpleado(Empleado empleadoEditado) throws Exception{
@@ -232,7 +261,7 @@ public class MarketplaceProducto {
 
     public void eliminarEmpleado(String cedula) throws Exception{
         Empleado empleado = obtenerEmpleado(cedula);
-        empleados.remove(empleado);
+        personas.remove(empleado);
     }
 
 
@@ -240,31 +269,33 @@ public class MarketplaceProducto {
 
         Empleado empleado= null;
 
-        for (int i = 0; i < empleados.size(); i++) {
-            if(empleados.get(i).getCedula().equals(cedula)){
-                empleado = empleados.get(i);
+        for (int i = 0; i < personas.size(); i++) {
+            if(personas.get(i).getCedula().equals(cedula) && personas.get(i) instanceof Empleado) {
+                empleado = (Empleado) personas.get(i);
             }
         }
         return empleado;
     }
 
 
-    public Empleado buscarEmpleado(String cedula) throws Exception{
-        for (Empleado empleado: empleados){
-            if(empleado.getCedula().equals(cedula)){
-                return empleado;
-            }
-        }
-        return null;
-    }
-
-    public Empleado validarUsuario(String cedula, String contrasena) throws Exception{
-        Empleado empleado = buscarEmpleado(cedula);
-        if (empleado!= null){
-            if (empleado.getContrasena().equals(contrasena)){
-                return empleado;
+    public Persona validarUsuario(String correo, String contrasena) throws Exception{
+        Persona persona = buscarPorCorreo(correo);
+        if (persona!= null){
+            if (persona.getContrasena().equals(contrasena)){
+                return persona;
             }
         }
         throw new Exception("Los datos de acceso son incorrectos");
+    }
+
+    private Persona buscarPorCorreo(String correo){
+
+        for(Persona persona : personas){
+            if(persona.getCorreo().equals(correo)){
+                return persona;
+            }
+        }
+
+        return  null;
     }
 }

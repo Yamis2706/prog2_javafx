@@ -5,9 +5,7 @@ import java.io.Serializable;
 
 public class Sesion implements Serializable {
     public static Sesion INSTANCIA;
-
-
-    private Empleado empleado;
+    private Persona persona;
 
     private Marketplace marketplace;
 
@@ -21,7 +19,15 @@ public class Sesion implements Serializable {
         return INSTANCIA;
     }
 
+    public Persona getPersona() {
+        return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
+    }
+
     public void cerrarSesion() {
-        empleado = null;
+        persona = null;
     }
 }
