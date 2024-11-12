@@ -6,8 +6,27 @@ import co.edu.uniquindio.cliente.clienteapp.service.IStrategyTransaccion;
 
 public class MarketplaceController {
     private MarketplaceProxy proxy;
+    private final Marketplace marketplace;
+    private Sesion sesion;
+    public static MarketplaceController INSTANCIA;
 
-    public MarketplaceController(){
+    private MarketplaceController(){
+        marketplace = new Marketplace();
+    }
+
+    public static MarketplaceController getInstancia(){
+        if(INSTANCIA == null){
+            INSTANCIA = new MarketplaceController();
+        }
+        return INSTANCIA;
+    }
+
+    public Sesion getInstanciaSesion() {
+        return Sesion.getInstanciaSesion();
+    }
+
+    public MarketplaceController(Marketplace marketplace){
+        this.marketplace = marketplace;
         MarketplaceFacade facade = new MarketplaceFacade();
         Autenticacion autenticacion = new Autenticacion();
         IMarketplaceServiceImpl servicioReal = new IMarketplaceServiceImpl(facade);

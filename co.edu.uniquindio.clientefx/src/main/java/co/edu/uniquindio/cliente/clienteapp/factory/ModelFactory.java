@@ -50,8 +50,9 @@ public class ModelFactory implements IModelFactoryService {
     }
 
     @Override
-    public void eliminarVendedor(String cedula) throws Exception{
+    public boolean eliminarVendedor(String cedula) throws Exception{
         marketplaceProducto.eliminarVendedor(cedula);
+        return false;
     }
 
     @Override
@@ -116,4 +117,7 @@ public class ModelFactory implements IModelFactoryService {
         marketplaceProducto.obtenerProducto(idProducto);
     }
 
+    public boolean crearVendedor(String nombre, String cedula) {
+        return false;
+    }
 }

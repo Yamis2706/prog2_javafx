@@ -15,7 +15,7 @@ public class AdminController {
         return modelFactory.crearVendedor(nombre, cedula);
     }
 
-    public boolean eliminarVendedor(String cedula) {
+    public boolean eliminarVendedor(String cedula) throws Exception {
         return modelFactory.eliminarVendedor(cedula);
     }
 }

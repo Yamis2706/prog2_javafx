@@ -46,7 +46,7 @@ public class AdminViewController {
     }
 
     @FXML
-    void onActionEliminar(ActionEvent event) {
+    void onActionEliminar(ActionEvent event) throws Exception {
         eliminarVendedor();
     }
 
@@ -69,7 +69,7 @@ public class AdminViewController {
         }
     }
 
-    private void eliminarVendedor() {
+    private void eliminarVendedor() throws Exception {
         String cedula = txtxCedulaEliminar.getText();
         if (cedula != null && !cedula.isEmpty()) {
             if(adminController.eliminarVendedor(cedula)){

@@ -17,7 +17,7 @@ public interface IModelFactoryService {
 
     void editarVendedor(VendedorDto vendedor) throws Exception;
 
-    void eliminarVendedor(String cedula) throws Exception;
+    boolean eliminarVendedor(String cedula) throws Exception;
 
     void crearVendedor(VendedorDto vendedor) throws Exception;
 

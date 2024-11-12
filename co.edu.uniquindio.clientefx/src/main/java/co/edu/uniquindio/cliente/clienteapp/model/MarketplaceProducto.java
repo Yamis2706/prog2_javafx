@@ -18,51 +18,51 @@ public class MarketplaceProducto {
     private List<Marketplace> ventas;
     private List<Factura> factura;
 
-    public MarketplaceProducto(){
+    public MarketplaceProducto() {
         this.personas = new ArrayList<>();
         this.ventas = new ArrayList<>();
         this.factura = new ArrayList<>();
     }
 
 
-    public void crearVendedor(Vendedor vendedor) throws Exception{
+    public void crearVendedor(Vendedor vendedor) throws Exception {
 
 
-        if(vendedor.getNombre() == null || vendedor.getNombre().isBlank()){
+        if (vendedor.getNombre() == null || vendedor.getNombre().isBlank()) {
             throw new Exception(Constantes.INGRESE_NOMBRE);
         }
 
-        if(vendedor.getApellido() == null || vendedor.getApellido().isBlank()){
+        if (vendedor.getApellido() == null || vendedor.getApellido().isBlank()) {
             throw new Exception(Constantes.INGRESE_APELLIDO);
         }
 
 
-        if(vendedor.getCedula() == null || vendedor.getCedula().isBlank()){
+        if (vendedor.getCedula() == null || vendedor.getCedula().isBlank()) {
             throw new Exception(Constantes.INGRESE_CEDULA);
         }
 
 
-        if(vendedor.getEdad() == null || vendedor.getEdad().isBlank()){
+        if (vendedor.getEdad() == null || vendedor.getEdad().isBlank()) {
             throw new Exception(Constantes.INGRESE_EDAD);
         }
 
-        if(vendedor.getDireccion() == null || vendedor.getDireccion().isBlank()){
+        if (vendedor.getDireccion() == null || vendedor.getDireccion().isBlank()) {
             throw new Exception(Constantes.INGRESE_DIRECCION);
         }
 
-        if(vendedor.getCelular() == null || vendedor.getCelular().isBlank()){
+        if (vendedor.getCelular() == null || vendedor.getCelular().isBlank()) {
             throw new Exception(Constantes.INGRESE_CELULAR);
         }
 
 
-        if( obtenerVendedor( vendedor.getCedula() ) !=null ){
+        if (obtenerVendedor(vendedor.getCedula()) != null) {
             throw new Exception(Constantes.CEDULA_EXISTENTE);
         }
 
         personas.add(vendedor);
     }
 
-    public void editarVendedor(Vendedor vendedorEditado) throws Exception{
+    public void editarVendedor(Vendedor vendedorEditado) throws Exception {
         Vendedor vendedor = obtenerVendedor(vendedorEditado.getCedula());
         vendedor.setNombre(vendedorEditado.getNombre());
         vendedor.setApellido(vendedorEditado.getApellido());
@@ -74,24 +74,24 @@ public class MarketplaceProducto {
 
     }
 
-    public void eliminarVendedor(String cedula) throws Exception{
+    public void eliminarVendedor(String cedula) throws Exception {
         Vendedor vendedor = obtenerVendedor(cedula);
         personas.remove(vendedor);
     }
 
-    public Vendedor obtenerVendedor(String cedula){
+    public Vendedor obtenerVendedor(String cedula) {
 
-        Vendedor vendedor= null;
+        Vendedor vendedor = null;
 
         for (int i = 0; i < personas.size(); i++) {
-            if(personas.get(i).getCedula().equals(cedula) && personas.get(i) instanceof Vendedor){
+            if (personas.get(i).getCedula().equals(cedula) && personas.get(i) instanceof Vendedor) {
                 vendedor = (Vendedor) personas.get(i);
             }
         }
         return vendedor;
     }
 
-    public Factura obtenerFactura(){
+    public Factura obtenerFactura() {
         return (Factura) factura;
     }
 
@@ -117,8 +117,8 @@ public class MarketplaceProducto {
     public List<Vendedor> listarVendedores() {
         List<Vendedor> lista = new ArrayList<>();
 
-        for(Persona persona : personas){
-            if(persona instanceof  Vendedor){
+        for (Persona persona : personas) {
+            if (persona instanceof Vendedor) {
                 lista.add((Vendedor) persona);
             }
         }
@@ -126,11 +126,12 @@ public class MarketplaceProducto {
         return lista;
 
     }
+
     public List<Empleado> listarEmpleados() {
         List<Empleado> lista = new ArrayList<>();
 
-        for(Persona persona : personas){
-            if(persona instanceof  Empleado){
+        for (Persona persona : personas) {
+            if (persona instanceof Empleado) {
                 lista.add((Empleado) persona);
             }
         }
@@ -139,8 +140,8 @@ public class MarketplaceProducto {
     }
 
     public Marketplace crearVenta(Vendedor vendedor1, Vendedor vendedor2,
-                            ArrayList<Producto> productos,
-                            TipoVenta tipoVenta, EstadoVenta estadoVenta) throws Exception {
+                                  ArrayList<Producto> productos,
+                                  TipoVenta tipoVenta, EstadoVenta estadoVenta) throws Exception {
 
         ICreacionVenta ICreacionVenta;
         if (tipoVenta == TipoVenta.CONTADO) {
@@ -201,53 +202,51 @@ public class MarketplaceProducto {
     }
 
 
+    public void crearEmpleado(Empleado empleado) throws Exception {
 
 
-    public void crearEmpleado(Empleado empleado) throws Exception{
-
-
-        if(empleado.getNombre() == null || empleado.getNombre().isBlank()){
+        if (empleado.getNombre() == null || empleado.getNombre().isBlank()) {
             throw new Exception(Constantes.INGRESE_NOMBRE);
         }
 
-        if(empleado.getApellido() == null || empleado.getApellido().isBlank()){
+        if (empleado.getApellido() == null || empleado.getApellido().isBlank()) {
             throw new Exception(Constantes.INGRESE_APELLIDO);
         }
 
 
-        if(empleado.getCedula() == null || empleado.getCedula().isBlank()){
+        if (empleado.getCedula() == null || empleado.getCedula().isBlank()) {
             throw new Exception(Constantes.INGRESE_CEDULA);
         }
 
 
-        if(empleado.getEdad() == null || empleado.getEdad().isBlank()){
+        if (empleado.getEdad() == null || empleado.getEdad().isBlank()) {
             throw new Exception(Constantes.INGRESE_EDAD);
         }
 
-        if(empleado.getDireccion() == null || empleado.getDireccion().isBlank()){
+        if (empleado.getDireccion() == null || empleado.getDireccion().isBlank()) {
             throw new Exception(Constantes.INGRESE_DIRECCION);
         }
 
-        if(empleado.getCelular() == null || empleado.getCelular().isBlank()){
+        if (empleado.getCelular() == null || empleado.getCelular().isBlank()) {
             throw new Exception(Constantes.INGRESE_CELULAR);
         }
 
-        if(empleado.getCorreo() == null || empleado.getCorreo().isBlank()){
+        if (empleado.getCorreo() == null || empleado.getCorreo().isBlank()) {
             throw new Exception(Constantes.INGRESE_CORREO);
         }
 
-        if(empleado.getContrasena() == null || empleado.getContrasena().isBlank()){
+        if (empleado.getContrasena() == null || empleado.getContrasena().isBlank()) {
             throw new Exception(Constantes.INGRESE_CONTRASENA);
         }
 
-        if( obtenerEmpleado( empleado.getCedula() ) !=null ){
+        if (obtenerEmpleado(empleado.getCedula()) != null) {
             throw new Exception(Constantes.CEDULA_EXISTENTE);
         }
 
         personas.add(empleado);
     }
 
-    public void editarEmpleado(Empleado empleadoEditado) throws Exception{
+    public void editarEmpleado(Empleado empleadoEditado) throws Exception {
         Empleado empleado = obtenerEmpleado(empleadoEditado.getCedula());
         empleado.setNombre(empleadoEditado.getNombre());
         empleado.setApellido(empleadoEditado.getApellido());
@@ -258,7 +257,7 @@ public class MarketplaceProducto {
 
     }
 
-    public void eliminarEmpleado(String cedula) throws Exception{
+    public void eliminarEmpleado(String cedula) throws Exception {
         Empleado empleado = obtenerEmpleado(cedula);
         personas.remove(empleado);
     }
@@ -266,10 +265,10 @@ public class MarketplaceProducto {
 
     public Empleado obtenerEmpleado(String cedula) {
 
-        Empleado empleado= null;
+        Empleado empleado = null;
 
         for (int i = 0; i < personas.size(); i++) {
-            if(personas.get(i).getCedula().equals(cedula) && personas.get(i) instanceof Empleado) {
+            if (personas.get(i).getCedula().equals(cedula) && personas.get(i) instanceof Empleado) {
                 empleado = (Empleado) personas.get(i);
             }
         }
@@ -277,27 +276,26 @@ public class MarketplaceProducto {
     }
 
 
-    public Persona validarUsuario(String correo, String contrasena) throws Exception{
+    public Persona validarUsuario(String correo, String contrasena) throws Exception {
         Persona persona = buscarPorCorreo(correo);
-        if (persona!= null){
-            if (persona.getContrasena().equals(contrasena)){
+        if (persona != null) {
+            if (persona.getContrasena().equals(contrasena)) {
                 return persona;
             }
         }
         throw new Exception("Los datos de acceso son incorrectos");
     }
 
-    private Persona buscarPorCorreo(String correo){
+    private Persona buscarPorCorreo(String correo) {
 
-        for(Persona persona : personas){
-            if(persona.getCorreo().equals(correo)){
+        for (Persona persona : personas) {
+            if (persona.getCorreo().equals(correo)) {
                 return persona;
             }
         }
 
-        return  null;
+        return null;
     }
-
 
 
     public void crearProducto(Producto producto) {
@@ -321,7 +319,9 @@ public class MarketplaceProducto {
     Vendedor vendedor2 = new Vendedor();
 
     Vendedor vendedor3 = new Vendedor();
+}
 
+    /**
         vendedor1.agregarObservador(vendedor2);
         vendedor1.agregarObservador(vendedor3);
 
@@ -330,4 +330,6 @@ public class MarketplaceProducto {
 
     Producto producto = new Producto("Teléfono Inteligente");
         vendedor1.agregarProducto(producto);
+        vendedor1.cambiarEstadoProducto(producto, "vendido");
 }
+     */
