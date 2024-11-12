@@ -1,8 +1,10 @@
 package co.edu.uniquindio.cliente.clienteapp.service;
 
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.ProductoDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.model.Empleado;
+import co.edu.uniquindio.cliente.clienteapp.model.Producto;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 
 import java.util.List;
@@ -12,6 +14,8 @@ public interface IMarketplaceMapping {
     List<VendedorDto> getVendedoresDto(List<Vendedor> listaVendedores);
 
     List<EmpleadoDto> getEmpleadosDto(List<Empleado> listaEmpleados);
+
+    List<ProductoDto> getProductosDto(List<Producto> listaProductos);
 
     List<Vendedor> getVendedores(List<VendedorDto> listaVendedoresDto);
 

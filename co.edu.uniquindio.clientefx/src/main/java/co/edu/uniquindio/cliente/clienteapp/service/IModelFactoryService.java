@@ -1,6 +1,7 @@
 package co.edu.uniquindio.cliente.clienteapp.service;
 
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.ProductoDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.MarketplaceDto;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
@@ -31,6 +32,8 @@ public interface IModelFactoryService {
     List<VendedorDto> listarVendedores();
 
     List<EmpleadoDto> listarEmpleados();
+
+    List<ProductoDto> listarProductos();
 
     void crearVinculo(Vendedor v1, Vendedor v2);
 

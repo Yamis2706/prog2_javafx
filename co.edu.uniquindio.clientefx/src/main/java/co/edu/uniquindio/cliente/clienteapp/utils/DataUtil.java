@@ -1,11 +1,13 @@
 package co.edu.uniquindio.cliente.clienteapp.utils;
 
 import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
-import co.edu.uniquindio.cliente.clienteapp.model.Empleado;
-import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
-import co.edu.uniquindio.cliente.clienteapp.model.MarketplaceProducto;
+import co.edu.uniquindio.cliente.clienteapp.model.*;
+
+import static co.edu.uniquindio.cliente.clienteapp.enums.EstadoProducto.PUBLICADO;
 
 public class DataUtil {
+
+    private static Producto productoDecorado;
 
     public static MarketplaceProducto inicializarDatos() throws Exception{
 
@@ -42,6 +44,22 @@ public class DataUtil {
                 "97253",
                 "19", "Calle 03", "752954", "@camila",
                 "270") );
+
+
+
+
+        marketplaceProducto.crearProducto(new Producto(productoDecorado.getNombre(),
+                productoDecorado.getCategoria(), productoDecorado.getPrecio(),
+                productoDecorado.getEstado(), productoDecorado.getIdProducto(),
+                productoDecorado.getDescripcion()));
+
+        Producto producto = new Producto("SPlus", "Smartphone", 500000,
+                PUBLICADO, "Sm304", "Teléfono de alta gama");
+
+        producto = new PromocionDecorator(producto, 0.20);
+
+        producto = new GarantiaExtendidaDecorator(producto, 24);
+
 
         return marketplaceProducto;
 

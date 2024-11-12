@@ -298,4 +298,22 @@ public class MarketplaceProducto {
 
         return  null;
     }
+
+
+
+    public void crearProducto(Producto producto) {
+    }
+
+    public void obtenerProducto(Producto producto) {
+    }
+
+    public void actualizarProducto(Producto producto) {
+    }
+
+    public void eliminarProducto(Producto producto) {
+    }
+
+    public List<Producto> listarProductos() {
+        return List.of();
+    }
 }

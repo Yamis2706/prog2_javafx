@@ -2,8 +2,10 @@ package co.edu.uniquindio.cliente.clienteapp.mapping.mappers;
 
 
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.ProductoDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.model.Empleado;
+import co.edu.uniquindio.cliente.clienteapp.model.Producto;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 import co.edu.uniquindio.cliente.clienteapp.service.IMarketplaceMapping;
 
@@ -125,6 +127,56 @@ public class MarketplaceMappingImpl implements IMarketplaceMapping {
                 .correo(empleadoDto.correo())
                 .contrasena(empleadoDto.contrasena())
 
+                .build();
+    }
+
+
+    public List<ProductoDto> getProductosDto(List<Producto> listaProductos) {
+        if(listaProductos == null){
+            return null;
+        }
+        List<ProductoDto> listaProductosDto =
+                new ArrayList<ProductoDto>(listaProductos.size());
+        for (Producto producto : listaProductos) {
+            listaProductosDto.add(productoToProductoDto(producto));
+        }
+
+        return listaProductosDto;
+    }
+
+
+    public List<Producto> getProductos(List<ProductoDto> listaProductosDto) {
+        if(listaProductosDto == null){
+            return null;
+        }
+        List<Producto> listaProductos =
+                new ArrayList<>(listaProductosDto.size());
+        for (ProductoDto producto : listaProductosDto) {
+            listaProductos.add(productoDtoToProducto(producto));
+        }
+
+        return listaProductos;
+    }
+
+
+    public ProductoDto productoToProductoDto(Producto producto) {
+        return new ProductoDto(
+                producto.getNombre(),
+                producto.getCategoria(),
+                producto.getPrecio(),
+                producto.getEstado(),
+                producto.getIdProducto(),
+                producto.getDescripcion());
+    }
+
+    public Producto productoDtoToProducto(ProductoDto productoDto) {
+        return Producto.builder()
+                .nombre(productoDto.nombre())
+                .categoria(productoDto.categoria())
+                .precio(productoDto.precio())
+                .estado(productoDto.estado())
+                .idProducto(productoDto.idProducto())
+                .descripcion(productoDto.descripcion())
                 .build();
     }
 }

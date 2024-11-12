@@ -1,26 +1,25 @@
 package co.edu.uniquindio.cliente.clienteapp.model;
 
+import co.edu.uniquindio.cliente.clienteapp.model.builder.ProductoBuilder;
 import lombok.Getter;
 
 public class Producto {
     @Getter
     private String nombre;
-    private String imagen;
-    private String categoria;
+    private Enum categoria;
     private double precio;
     private Enum estado;
     private String idProducto;
     private String descripcion;
     MarketplaceProducto ownedByVentaUQ;
 
-    public Producto() {
+    public Producto(String nombre, Enum categoria, double precio, Enum estado, String idProducto, String descripcion) {
     }
 
-    public Producto(String nombre, String imagen, String categoria, double precio,
+    public Producto(String nombre, Enum categoria, double precio,
                     Enum estado, String idProducto,
                    String descripcion, MarketplaceProducto ownedByVentaUQ) {
         this.nombre = nombre;
-        this.imagen = imagen;
         this.categoria = categoria;
         this.precio = precio;
         this.estado = estado;
@@ -29,19 +28,24 @@ public class Producto {
         this.ownedByVentaUQ = ownedByVentaUQ;
     }
 
+    public Producto(String nombre, String categoria,
+                    double precio, Enum estado, String idProducto, String descripcion) {
+    }
+
+    public Producto() {
+
+    }
+
     public void setNombre(String nombre) {
         this.nombre = nombre;
     }
 
-    public String getImagen() {
-        return imagen;
-    }
 
-    public String getCategoria() {
+    public Enum getCategoria() {
         return categoria;
     }
 
-    public void setCategoria(String categoria) {
+    public void setCategoria(Enum categoria) {
         this.categoria = categoria;
     }
 
@@ -81,7 +85,6 @@ public class Producto {
     public String toString() {
         return "Producto{" +
                 "nombre='" + nombre + '\'' +
-                ", imagen='" + imagen + '\'' +
                 ", categoria='" + categoria + '\'' +
                 ", precio=" + precio +
                 ", estado=" + estado +
@@ -89,5 +92,14 @@ public class Producto {
                 ", descripcion='" + descripcion + '\'' +
 
                 '}';
+    }
+
+    public String getDetalles() {
+        return "ID: " + idProducto + " | " + nombre + " - " + categoria + ": $" +
+                precio + " | Estado: " + estado + " | Descripción: " + descripcion;
+    }
+
+    public static ProductoBuilder builder(){
+        return new ProductoBuilder();
     }
 }

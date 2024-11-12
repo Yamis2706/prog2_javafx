@@ -1,6 +1,7 @@
 package co.edu.uniquindio.cliente.clienteapp.factory;
 
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.EmpleadoDto;
+import co.edu.uniquindio.cliente.clienteapp.mapping.dto.ProductoDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.VendedorDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.dto.MarketplaceDto;
 import co.edu.uniquindio.cliente.clienteapp.mapping.mappers.MarketplaceMappingImpl;
@@ -89,6 +90,11 @@ public class ModelFactory implements IModelFactoryService {
     @Override
     public List<EmpleadoDto> listarEmpleados() {
         return mapper.getEmpleadosDto(marketplaceProducto.listarEmpleados());
+    }
+
+    @Override
+    public List<ProductoDto> listarProductos() {
+        return mapper.getProductosDto(marketplaceProducto.listarProductos());
     }
 
     @Override
