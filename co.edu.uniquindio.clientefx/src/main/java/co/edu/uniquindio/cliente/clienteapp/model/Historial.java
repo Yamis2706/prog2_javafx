@@ -16,11 +16,8 @@ import lombok.*;
 
 public class Historial implements Serializable {
     private final String codigoVenta;
-    private float totalVenta;
-    private ArrayList<Producto> productos;
-    private ArrayList <Marketplace> listaVentasAsociadas;
     private LocalDate fechaVenta;
-    private TipoVenta tipoVenta;
+    private LocalDate descripcion;
     private EstadoVenta estadoVenta;
 
 }

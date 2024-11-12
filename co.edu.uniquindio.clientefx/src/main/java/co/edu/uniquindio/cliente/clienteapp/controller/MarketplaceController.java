@@ -4,6 +4,8 @@ import co.edu.uniquindio.cliente.clienteapp.model.*;
 import co.edu.uniquindio.cliente.clienteapp.service.IMarketplaceServiceImpl;
 import co.edu.uniquindio.cliente.clienteapp.service.IStrategyTransaccion;
 
+import java.util.ArrayList;
+
 public class MarketplaceController {
     private MarketplaceProxy proxy;
     private final Marketplace marketplace;
@@ -79,5 +81,9 @@ public boolean autenticarDesdeGUI(String usuario, String contrasena) {
                                                String usuarioComprador,
                                                Producto producto) {
         return proxy.realizarTransaccion(usuarioVendedor, contrasenaVendedor, usuarioComprador, producto);
+    }
+
+    public ArrayList<Historial> consultarHistorialEstados(String text) {
+        return null;
     }
 }
