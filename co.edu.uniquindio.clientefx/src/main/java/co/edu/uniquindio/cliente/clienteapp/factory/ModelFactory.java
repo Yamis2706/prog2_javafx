@@ -111,4 +111,9 @@ public class ModelFactory implements IModelFactoryService {
         return marketplaceProducto.validarUsuario(correo, contrasena);
     }
 
+    @Override
+    public void obtenerProducto(String idProducto) throws Exception{
+        marketplaceProducto.obtenerProducto(idProducto);
+    }
+
 }

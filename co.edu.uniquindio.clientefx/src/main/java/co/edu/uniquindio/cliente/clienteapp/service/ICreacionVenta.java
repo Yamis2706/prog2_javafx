@@ -9,7 +9,7 @@ import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
 
 import java.util.ArrayList;
 
-public interface  CreacionVenta {
+public interface ICreacionVenta {
 
 
 

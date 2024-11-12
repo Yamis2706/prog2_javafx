@@ -39,6 +39,8 @@ public interface IModelFactoryService {
 
     void calcularVentasMes(MarketplaceDto venta);
 
-   //void obtenerClientesPorCiudad(String ciudad);
+    void obtenerProducto(String idProducto) throws Exception;
+
+    //void obtenerClientesPorCiudad(String ciudad);
 
 }

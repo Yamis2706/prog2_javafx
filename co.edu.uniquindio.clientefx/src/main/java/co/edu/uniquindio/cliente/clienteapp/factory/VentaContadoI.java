@@ -6,11 +6,11 @@ import co.edu.uniquindio.cliente.clienteapp.model.Factura;
 import co.edu.uniquindio.cliente.clienteapp.model.Marketplace;
 import co.edu.uniquindio.cliente.clienteapp.model.Producto;
 import co.edu.uniquindio.cliente.clienteapp.model.Vendedor;
-import co.edu.uniquindio.cliente.clienteapp.service.CreacionVenta;
+import co.edu.uniquindio.cliente.clienteapp.service.ICreacionVenta;
 
 import java.util.ArrayList;
 
-public class VentaContado implements CreacionVenta {
+public class VentaContadoI implements ICreacionVenta {
 
     @Override
     public Factura crearFactura(Marketplace venta, float totalVenta, String codigo) throws Exception {

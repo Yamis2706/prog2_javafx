@@ -3,11 +3,10 @@ package co.edu.uniquindio.cliente.clienteapp.model;
 import co.edu.uniquindio.cliente.clienteapp.enums.Categoria;
 import co.edu.uniquindio.cliente.clienteapp.enums.EstadoVenta;
 import co.edu.uniquindio.cliente.clienteapp.enums.TipoVenta;
-import co.edu.uniquindio.cliente.clienteapp.factory.VentaContado;
-import co.edu.uniquindio.cliente.clienteapp.factory.VentaCredito;
-import co.edu.uniquindio.cliente.clienteapp.service.CreacionVenta;
+import co.edu.uniquindio.cliente.clienteapp.factory.VentaContadoI;
+import co.edu.uniquindio.cliente.clienteapp.factory.VentaCreditoI;
+import co.edu.uniquindio.cliente.clienteapp.service.ICreacionVenta;
 import co.edu.uniquindio.cliente.clienteapp.utils.Constantes;
-import com.sun.management.UnixOperatingSystemMXBean;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -143,19 +142,19 @@ public class MarketplaceProducto {
                             ArrayList<Producto> productos,
                             TipoVenta tipoVenta, EstadoVenta estadoVenta) throws Exception {
 
-        CreacionVenta creacionVenta;
+        ICreacionVenta ICreacionVenta;
         if (tipoVenta == TipoVenta.CONTADO) {
-            creacionVenta = new VentaContado();
+            ICreacionVenta = new VentaContadoI();
         } else {
-            creacionVenta = new VentaCredito();
+            ICreacionVenta = new VentaCreditoI();
         }
 
-        Marketplace venta = creacionVenta.crearVenta(vendedor1, vendedor2, productos,
+        Marketplace venta = ICreacionVenta.crearVenta(vendedor1, vendedor2, productos,
                 tipoVenta, estadoVenta);
         int ventasMes = calcularVentasMes(venta.getFechaVenta().getMonth());
-        float valor = creacionVenta.calcularCostoVenta(venta, ventasMes);
+        float valor = ICreacionVenta.calcularCostoVenta(venta, ventasMes);
         String codigo = crearCodigoVenta();
-        Factura factura = creacionVenta.crearFactura(venta, valor, codigo);
+        Factura factura = ICreacionVenta.crearFactura(venta, valor, codigo);
 
         ventas.add(venta);
         //facturas.add(factura);
@@ -304,7 +303,7 @@ public class MarketplaceProducto {
     public void crearProducto(Producto producto) {
     }
 
-    public void obtenerProducto(Producto producto) {
+    public void obtenerProducto(String producto) {
     }
 
     public void actualizarProducto(Producto producto) {
@@ -316,4 +315,19 @@ public class MarketplaceProducto {
     public List<Producto> listarProductos() {
         return List.of();
     }
+
+    Vendedor vendedor1 = new Vendedor();
+
+    Vendedor vendedor2 = new Vendedor();
+
+    Vendedor vendedor3 = new Vendedor();
+
+        vendedor1.agregarObservador(vendedor2);
+        vendedor1.agregarObservador(vendedor3);
+
+        vendedor2.agregarObservador(vendedor1);
+        vendedor2.agregarObservador(vendedor3);
+
+    Producto producto = new Producto("Teléfono Inteligente");
+        vendedor1.agregarProducto(producto);
 }
